@@ -20,7 +20,7 @@ background-size: cover;
   border: 10px solid #7a3434;
   background: #91c8d5;
   padding: 5px;
-  width: 500px;
+  width: auto;
   height: auto;
 
 }
@@ -59,4 +59,5 @@ background-size: cover;
 }
 .myButton:hover {
   background-color: darkblue;
-}}
+}
+}

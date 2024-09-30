@@ -1,11 +1,14 @@
 body {
 background-image: url(../Bilder/frontpage.png);
-background-size: cover;  
+background-size: cover;
+background-color: #be0808;
 
 .grid-container {
   display: grid;
   gap: 10px;
   padding: 10px;
+
+}
 
 #rcorners1 {
   border-radius: 25px;
@@ -15,14 +18,13 @@ background-size: cover;
   width: 200px;
   height: 50px;  
 }
-}
 #rcorners2 {
   border-radius: 25px;
   border: 10px solid #7a3434;
   background: #91c8d5;
   padding: 5px;
-  width: auto;
-  height: auto;
+  width: 350px;
+  height: 250;
 
 }
 .grid-item {
@@ -51,8 +53,12 @@ background-size: cover;
   grid-row: 2 / span 2;
 }
 .myButton {
-  background: #91c8d5;
-  border: none;
+  border-radius: 25px;
+  border: 2px solid #7a3434;
+  padding: 20px; 
+  width: 200px;
+  height: 50px;  
+  background: #7eb9c7;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -60,6 +66,8 @@ background-size: cover;
   cursor: pointer;
 }
 .myButton:hover {
-  font-size: larger;
+  width: 180px;
+  font-size: 15px;
+  background: #719aa5;
 }
 }

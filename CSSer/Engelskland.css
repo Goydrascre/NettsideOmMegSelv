@@ -1,0 +1,37 @@
+
+.grid-container {
+    display: grid;
+  }
+
+.grid-item {
+    text-align: center;
+    padding: 5px;
+    font-size: 30px;
+  }
+
+.text1 {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+  .text2 {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+  }
+  .text3 {
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 1;
+  }
+
+  .title {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 1;
+  }
+  #rcorners1 {
+    border-radius: 25px;
+    background: #91c8d5;
+    border: 5px solid #7a3434;
+    width: auto;
+    height: auto;
+    min-width: 400px;
+    max-width: 600px;
+  }

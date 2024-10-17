@@ -26,12 +26,20 @@
     grid-column: 1 / span 3;
     grid-row: 1 / span 1;
   }
-  #rcorners1 {
-    border-radius: 25px;
-    background: #91c8d5;
-    border: 5px solid #7a3434;
-    width: auto;
+
+  .myButton1 {
+  border-radius: 25px;
+  background: #91c8d5;
+  border: 5px solid #7a3434;
+  width: auto;
+  height: auto;
+  max-width: 400px;
+  transition: 0.3s;
+  }
+
+  .myButton1 :hover{
+    font-size: 25px;
+    width: larger;
     height: auto;
-    min-width: 400px;
-    max-width: 600px;
+    transition: 0.2s;
   }

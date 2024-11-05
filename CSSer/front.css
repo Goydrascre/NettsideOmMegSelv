@@ -2,75 +2,89 @@ body {
 background-image: url(../Bilder/frontpage.png);
 background-size: cover;
 background-color: #be0808;
+}
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #9a2e2e;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  transition: all 0.2s;
+  display: block;
+  color: black;
+  font-size: 18px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  transition: all 0.2s; 
+  background-color: #b93b3b;
+}
+
+.active {
+  background-color: #7eb9c7;
+}
 .grid-container {
   display: grid;
-  gap: 10px;
-  padding: 10px;
-
+  gap: 5px;
+  background-color: #2196F3;
+  padding: 8px;
 }
 
-#rcorners1 {
-  border-radius: 25px;
-  background: #91c8d5;
-  border: 15px solid #7a3434;
-  padding: 20px; 
-  width: 200px;
-  height: 50px;  
-}
-#rcorners2 {
-  border-radius: 25px;
-  border: 10px solid #7a3434;
-  background: #91c8d5;
-  padding: 5px;
-  width: 350px;
-  height: 250;
-
-}
 .grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
-
-  padding: 20px;
-  font-size: 30px;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .item1 {
-  grid-column: 2 / span 1;
-  grid-row: 1/ span 1;
+  grid-column: 1 / span 1;
+  grid-row: 1;
 }
-
 .item2 {
-  grid-column: 2/ span 1;
-  grid-row: 2 / span 1;
+  grid-column: 2 / span 1;
+  grid-row: 1;
 }
 .item3 {
-  grid-column: 2 / span 1;
-  grid-row: 3 / span 1;
+  grid-column: 3 / span 1;
+  grid-row: 1;
+}
+.item4 {
+  grid-column: 4 / span 1;
+  grid-row: 1;
 }
 
-.item4 {
-  grid-column: 1 / span 1;
-  grid-row: 2 / span 2;
-}
-.myButton {
-  border-radius: 25px;
-  border: 2px solid #7a3434;
-  padding: 20px; 
-  width: 200px;
-  height: 50px;  
-  background: #7eb9c7;
-  padding: 10px 20px;
+.button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
   text-align: center;
   text-decoration: none;
+  display: inline-block;
   font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.2s ease ; 
 }
-.myButton:hover {
-  width: 260px;
-  font-size: 25px;
-  background: #719aa5;
-  transition: all 0.1s ease ; 
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #04AA6D;
 }
-
+.button1:hover {
+  background-color: #04AA6D;
+  color: white;
 }

@@ -1,22 +1,11 @@
- // Spør bruker om data
- let userInput = prompt("Skriv inn tall og tekst, adskilt med mellomrom:");
 
- // Vis inputen i konsollen
- console.log("Inndata fra bruker:", userInput);
 
- // Splitter inputen i en liste for å analysere hver del
- let inputArray = userInput.split(" ");
-
- // Filtrer ut bare tallene fra inputen
- let numbers = inputArray.filter(value => !isNaN(value) && value !== "").map(Number);
-
- // Beregn summen av tallene
- let sum = numbers.reduce((acc, curr) => acc + curr, 0);
-
- // Vis inputen og summen på nettsiden
- document.getElementById("inputData").innerText = "Inndata: " + userInput;
- document.getElementById("sumResult").innerText = "Sum av tall: " + sum;
-
- // Vis inputen og summen i konsollen
- console.log("Inndata: " + userInput);
- console.log("Sum av tall: " + sum);
+let tall1 = 45;
+let tall2 = 26;
+let tall1mindregod=45;
+console.log("tall1 er", tall1);
+console.log("tall2 er", tall2);
+tall1 = tall2
+tall2 = tall1mindregod
+console.log("tall 1 er",tall1)
+console.log("tall 2 er",tall2)

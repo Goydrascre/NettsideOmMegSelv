@@ -45,6 +45,9 @@ li a:hover:not(.active) {
   text-align: center;
   padding: 10px;
   font-size: 20px;
+  display: flex;
+  flex-direction: column; /* Plasserer knappene under hverandre */
+  gap: 10px; /* Mellomrom mellom knappene */
 }
 
 .item1 {
@@ -74,9 +77,11 @@ li a:hover:not(.active) {
   border-radius: 25px;
   border-color: #9a2e2e;
   cursor: pointer;
+  
 }
 .button1 {
-  background-color: #7eb9c7; 
+  background-color: #7eb9c7;
+  
 }
 .button1:hover {
   background-color: #236577;

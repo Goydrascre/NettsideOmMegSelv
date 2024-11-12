@@ -1,0 +1,19 @@
+.grid-container {
+    display: grid;
+    gap: 5px;
+    padding: 8px;
+  }
+  
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column; /* Plasserer knappene under hverandre */
+    gap: 10px; /* Mellomrom mellom knappene */
+  }
+  .item1 {
+    grid-column: 1 / span 1;
+    grid-row: 1;
+  }

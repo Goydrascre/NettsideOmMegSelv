@@ -41,7 +41,7 @@ li a:hover:not(.active) {
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(214, 142, 142, 0.8);
   text-align: center;
   padding: 10px;
   font-size: 20px;
@@ -60,10 +60,6 @@ li a:hover:not(.active) {
 }
 .item3 {
   grid-column: 3 / span 1;
-  grid-row: 1;
-}
-.item4 {
-  grid-column: 4 / span 1;
   grid-row: 1;
 }
 
@@ -86,4 +82,7 @@ li a:hover:not(.active) {
 .button1:hover {
   background-color: #236577;
   color: white;
+}
+h1{
+  font-size: clamp(32px, 10vw, 50px);
 }

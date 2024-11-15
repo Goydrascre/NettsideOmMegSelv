@@ -20,9 +20,8 @@ li a {
   transition: all 0.2s;
   display: block;
   color: black;
-  font-size: 18px;
   text-align: center;
-  padding: 14px 16px;
+  padding: 8px 10px;
   text-decoration: none;
 }
 /* gjør at boksen på linken til siden du er på blir blå */
@@ -33,51 +32,68 @@ li a:hover:not(.active) {
 
 .active {
   background-color: #7eb9c7;
+  font-size: clamp(12px, 3vw, 18px);
 }
 .grid-container {
+  background-color: rgba(214, 142, 142, 0.8);
   display: grid;
   gap: 5px;
   padding: 8px;
 }
 
-.grid-item {
-  background-color: rgba(214, 142, 142, 0.8);
-  text-align: center;
-  padding: 10px;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column; /* Plasserer knappene under hverandre */
-  gap: 10px; /* Mellomrom mellom knappene */
-}
 
-.item1 {
+.index_tekst {
+  background-color: rgba(214, 142, 142, 0.8);
   grid-column: 1 / span 1;
   grid-row: 1;
 }
-.item2 {
+
+.Om_tekst{
+  background-color: rgba(214, 142, 142, 0.8);
+  @media (max-width: 700px) {
+    grid-column: 2 / span 1;
+    grid-row: 1/ span 2;
+  }
   grid-column: 2 / span 1;
   grid-row: 1;
 }
-.item3 {
+.andre_bilde_Om{
+  @media (max-width: 700px) {
+    grid-column: 1 / span 1;
+    grid-row: 2;
+  }
   grid-column: 3 / span 1;
   grid-row: 1;
 }
 
-.button {
-  padding: 16px 32px;
+.prosjekter1{/* for alle gridsene på prosjekt siden*/
+  grid-column: 1;
+  grid-row: 1;
+}
+.prosjekter2{
+  grid-column: 2;
+  grid-row: 1;
+}
+.prosjekter3{
+  @media (max-width: 700px) {
+    grid-column: 1 / span 1;
+    grid-row: 2;
+  }
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.button1 {
+  text-align: center;
+  background-color: #7eb9c7;
+  padding: 4px 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   transition-duration: 0.4s;
-  border-radius: 25px;
+  border-radius: 10px;
   border-color: #9a2e2e;
   cursor: pointer;
-  
-}
-.button1 {
-  background-color: #7eb9c7;
-  
 }
 .button1:hover {
   background-color: #236577;
@@ -85,4 +101,20 @@ li a:hover:not(.active) {
 }
 h1{
   font-size: clamp(32px, 10vw, 50px);
+}
+h2{
+  font-size: clamp(20px, 10vw, 30px);
+}
+
+.src1 {
+  width: clamp(50px, 15vw, 400px);
+}
+.p1{
+  font-size: clamp(16px, 3vw, 30px);
+}
+.prosjekter_tittel{
+  font-size: clamp(10px, 6vw, 20px);
+}
+.meny{
+  font-size: clamp(12px, 3vw, 18px);
 }

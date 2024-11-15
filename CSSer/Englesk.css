@@ -59,7 +59,7 @@ header p {
 
 /* endrer størellsen bare når man har stor nok resulusjon */
 .myButton:hover {
-  @media only screen and (min-width: 980px) {
+  @media (min-width: 1000px) {
   font-size: 20px;
   height: 450px;
   }

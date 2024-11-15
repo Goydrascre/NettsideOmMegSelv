@@ -1,16 +1,25 @@
+body {
+  background-image: url(../Bilder/frontpage.png);
+  background-size: cover;
+  background-color: #be0808;
+  }
 .grid-container {
-    display: grid;
-    gap: 5px;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  .grid-item {
-    padding: 10px;
-    font-size: 20px;
-  }
-  .videoen {
-    grid-column: 1 / span 5;
-    grid-row: 1;
-  }
-  
+  display: grid; /* Aktiverer grid-layout */
+  gap: 5px; /* Mellomrom mellom grid-elementene */
+  padding: 8px;
+  text-align: center;
+}
+
+.grid-item {
+  padding: 10px; /* Luft rundt hvert element */
+  font-size: 20px;
+}
+
+.videoen {
+  grid-column: 1 / span 5; /* Videoen strekker seg over 5 kolonner */
+}
+
+.video {
+  width: 50vw; /* 50% av skjermbredden */
+  height: 75vh; /* 75% av skjermhøyden */
+}

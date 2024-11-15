@@ -1,24 +1,45 @@
 <!doctype html>
 <html lang="no">
 <head> 
-    <title>Andreas sin nettside</title>
-    <link rel="stylesheet" href="CSSer/front.css">
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsivt design -->
+    <title>Andreas sin nettside</title>
+    <link rel="stylesheet" href="CSSer/front.css"> <!-- Link til hoved-CSS -->
 </head>
 <body>
-        <ul> <!--meny-->
-            <li><a class="active" href="#home">Hjem</a></li>
-            <li><a href="indexHtmler/Om.html"class=meny>Om meg</a></li>
-            <li><a href="indexHtmler/kontakt.html"class=meny>Kontakt meg</a></li>
-            <li><a href="indexHtmler/prosjekter.html"class="meny">Prosjekter</a></li>
-          </ul>
-          <script src="../javascripts/java.js"></script>
 
-          <h1>Andreas Bolstad</h1>
-          <div class="grid-container">
-            <div class="grid-item index_tekst"><pc class=p1>Jeg går på Informasjonsteknologi og mediaprodukjson på Amalie skram vidergående skole.</p> 
-            Der jobber vi hovedsakelig med å lage nettsider, og jeg er ganske komfortabel i både HTML og CSS. Vi lærer også om Javascript, og jeg begynner å forstå hvordan det fungerer.
-            <p>Jeg har laget en ofentlig butikk nettside for en grunder, som du kan finne under prosjekter og så egne greier.</p>
+    <!-- Navigasjonsmeny -->
+    <ul> 
+        <li><a class="active" href="#home">Hjem</a></li>
+        <li><a href="indexHtmler/Om.html" class="meny">Om meg</a></li>
+        <li><a href="indexHtmler/kontakt.html" class="meny">Kontakt meg</a></li>
+        <li><a href="indexHtmler/prosjekter.html" class="meny">Prosjekter</a></li>
+    </ul>
+
+    <!-- JavaScript inkludert -->
+    <script src="../javascripts/java.js"></script>
+
+    <!-- Hovedoverskrift -->
+    <h1>Andreas Bolstad</h1>
+
+    <!-- Grid-container for innholdet -->
+    <div class="grid-container">
+        
+        <!-- Tekstseksjon -->
+        <div class="grid-item index_tekst">
+            <!-- Tekstbeskrivelse om deg selv -->
+            <p class="p1">
+                Jeg går på Informasjonsteknologi og mediaproduksjon på Amalie Skram videregående skole. 
+                Der jobber vi hovedsakelig med å lage nettsider, og jeg er ganske komfortabel i både HTML og CSS. 
+                Vi lærer også om JavaScript, og jeg begynner å forstå hvordan det fungerer.
+            </p>
+            <p class="p1">
+                Jeg har laget en offentlig butikk-nettside for en gründer, som du kan finne under 
+                "Prosjekter" og så "Egne greier".
+            </p>
         </div>
-        </div>
-</body
+
+    </div> <!-- Slutt på grid-container -->
+
+</body>
+</html>

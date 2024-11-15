@@ -1,33 +1,43 @@
 <!doctype html>
 <html lang="no">
 <head> 
-    <title>Andreas sin nettside</title>
-    <link rel="stylesheet" href="../CSSer/front.css">
     <meta charset="utf-8">
+    <title>Andreas sin nettside</title> <!-- Page title -->
+    <link rel="stylesheet" href="../CSSer/front.css"> <!-- Link to external CSS -->
 </head>
 <body>
-        <ul><!--meny-->
-            <li><a href="../index.html"class=meny>Hjem</a></li>
-            <li><a class="active" href="Om.html">Om meg</a></li>
-            <li><a href="kontakt.html"class=meny>Kontakt meg</a></li>
-            <li><a href="prosjekter.html"class=meny>Prosjekter</a></li>
-          </ul>
-          <script src="../javascripts/java.js"></script>
-            <h1>Om meg</h1>
-          <div class="grid-container">
-            <div class="grid-item item1">
-                <img src="../Bilder/Midra.jpg"class=src1>
-            </div>
-            <div class="grid-item Om_tekst">
-                <p class="p1"> Jeg heter Andreas og jeg liker å lage fine nettsider. Jeg gikk på programmering i 3 år på ungdomskulen og har snart fullført første halv 
-                    år på Amalie Skram. </p>
-                    <p class="p1">
-                    Når jeg ikke jobber med skole eller nettsiden så liker jeg å spille spill som Elden ring og hollow knight, og lage leire figurer(som du kan se til siden)</p>
-                    <p class="p1">
-                    Om du lurer på noe så er det bare å ta kontakt. Ha det bra :) </p>
-            </div>
-            <div class="grid-item andre_bilde_Om">
-                <img src="../Bilder/Radiance Hollow knight.jpg" class=src1>
-            </div>
+    <!-- Navigation Menu -->
+    <ul><!--meny-->
+        <li><a href="../index.html" class="meny">Hjem</a></li>
+        <li><a class="active" href="Om.html">Om meg</a></li>
+        <li><a href="kontakt.html" class="meny">Kontakt meg</a></li>
+        <li><a href="prosjekter.html" class="meny">Prosjekter</a></li>
+    </ul>
+
+    <!-- JavaScript file -->
+    <script src="../javascripts/java.js"></script>
+
+    <h1>Om meg</h1> <!-- Heading for the "About Me" section -->
+
+    <div class="grid-container">
+        <!-- Image on the left -->
+        <div class="grid-item item1">
+            <img src="../Bilder/Midra.jpg" class="src1" alt="Bilde av Andreas"> <!-- Added alt text for accessibility -->
         </div>
-</body>       
+
+        <!-- Text section on the right -->
+        <div class="grid-item Om_tekst">
+            <p class="p1">Jeg heter Andreas og jeg liker å lage fine nettsider. Jeg gikk på programmering i 3 år på ungdomskulen og har snart fullført første halvår på Amalie Skram.</p>
+            <p class="p1">Når jeg ikke jobber med skole eller nettsiden, så liker jeg å spille spill som Elden Ring og Hollow Knight, og lage leirefigurer (som du kan se til siden).</p>
+            <p class="p1">Om du lurer på noe, så er det bare å ta kontakt. Ha det bra :)</p>
+        </div>
+
+        <!-- Image on the right -->
+        <div class="grid-item andre_bilde_Om">
+            <img src="../Bilder/Radiance Hollow knight.jpg" class="src1" alt="Bilde av Radiance fra Hollow Knight"> <!-- Added alt text for accessibility -->
+        </div>
+    </div>
+
+</body>
+</html>
+       

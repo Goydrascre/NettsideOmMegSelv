@@ -33,9 +33,11 @@ header p {
   margin: 40px 0;
   gap: 10px;
 }
- .grid-item {
+
+.grid-item {
   background-color: #9a2e2e;
- }
+}
+
 .home-icon {
   width: 30px;
   transition: transform 0.3s;
@@ -45,6 +47,7 @@ header p {
   transform: scale(1.5);
   opacity: 0.8;
 }
+
 .myButton {
   border-radius: 25px;
   border: 5px solid #7a3434;
@@ -54,16 +57,10 @@ header p {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease ; 
+  transition: all 0.3s ease; 
 }
 
-/* endrer størellsen bare når man har stor nok resulusjon */
 .myButton:hover {
-  @media (min-width: 1000px) {
-  font-size: 20px;
-  height: 450px;
-  }
-  background: #719aa5;
-  transition: all 0.3s ease ; 
+  background: #719aa5; /* Endrer bakgrunnsfarge ved hover */
 }
 

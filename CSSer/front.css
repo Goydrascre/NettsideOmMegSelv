@@ -27,7 +27,7 @@ li a {
 /* gjør at boksen på linken til siden du er på blir blå */
 li a:hover:not(.active) {
   transition: all 0.2s; 
-  background-color: #b93b3b;
+  background-color: #5f7e83;
 }
 
 .active {
@@ -35,17 +35,26 @@ li a:hover:not(.active) {
   font-size: clamp(12px, 3vw, 18px);
 }
 .grid-container {
-  background-color: rgba(214, 142, 142, 0.8);
+  margin: 0 auto;
+  width: 90%;
   display: grid;
-  gap: 5px;
-  padding: 8px;
+  gap: 10px;
+  background-color: #b82929;
+  padding: 10px;
 }
 
+.grid-item {
+  background-color: rgba(204, 117, 117, 0.8);
+  text-align: center;
+  padding: 5px;
+  font-size: 30px;
+}
 
 .index_tekst {
   background-color: rgba(214, 142, 142, 0.8);
   grid-column: 1 / span 1;
   grid-row: 1;
+  padding: 30px;
 }
 
 .Om_tekst{
@@ -103,7 +112,7 @@ h1{
   font-size: clamp(32px, 10vw, 50px);
 }
 h2{
-  font-size: clamp(20px, 10vw, 30px);
+  font-size: clamp(15px, 5vw, 30px);
 }
 
 .src1 {
@@ -113,7 +122,7 @@ h2{
   font-size: clamp(16px, 3vw, 30px);
 }
 .prosjekter_tittel{
-  font-size: clamp(10px, 6vw, 20px);
+  font-size: clamp(10px, 2vw, 20px);
 }
 .meny{
   font-size: clamp(12px, 3vw, 18px);

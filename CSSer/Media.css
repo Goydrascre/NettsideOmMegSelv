@@ -2,7 +2,13 @@ body {
   background-image: url(../Bilder/frontpage.png);
   background-size: cover;
   background-color: #be0808;
-  }
+}
+header {
+  text-align: center;
+  background-color: #7d1414;
+  color: white;
+  padding: 20px;
+}
 .grid-container {
   display: grid; /* Aktiverer grid-layout */
   gap: 5px; /* Mellomrom mellom grid-elementene */
@@ -22,4 +28,14 @@ body {
 .video {
   width: 50vw; /* 50% av skjermbredden */
   height: 75vh; /* 75% av skjermhøyden */
+}
+
+.hjem-icon { /*størelsen for hjem iconet*/
+  width: 30px;
+  transition: transform 0.3s;
+}
+
+.hjem-icon:hover {
+  transform: scale(1.5);
+  opacity: 0.5;
 }

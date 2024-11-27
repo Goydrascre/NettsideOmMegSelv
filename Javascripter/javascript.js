@@ -28,3 +28,15 @@ function pulls() {
         document.getElementById("resultat").innerHTML = "Du har ikke nok pulls til å få en karakter garantert";
     }
 }
+let score = 0;
+let cookiePerClick = 1;
+
+const scoreDisplay=document.getElementById("score");
+const upgrademus = document.getElementById("upgrade1");
+const byggning1 = document.getElementById("byggning1");
+const byggning2 = document.getElementById("byggning2");
+const byggning3 = document.getElementById("byggning3");
+
+function updateScore() {
+    scoreDisplay.textContent = `Poeng: ${score}`;
+}

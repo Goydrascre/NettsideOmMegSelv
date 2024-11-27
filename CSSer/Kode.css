@@ -1,0 +1,78 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f5f5dc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+#game {
+    margin: 20px auto;
+    width: 400px;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+#score {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#cookie {
+    width: 200px;
+    cursor: pointer;
+}
+
+#shop {
+    margin-top: 20px;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff9900;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+#golden-cookie {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: gold;
+    border-radius: 50%;
+    border: 3px solid orange;
+    display: none;
+    cursor: pointer;
+    z-index: 100; /* Sørger for at den vises foran alt annet */
+    animation: bounce 1s infinite;
+}
+
+/* Enkel bounce-effekt for gyldne cookies */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

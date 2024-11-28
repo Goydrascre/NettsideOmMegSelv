@@ -30,7 +30,8 @@ function pulls() {
 }
 let score = 0;
 let cookiePerClick = 1;
-let upgrademus_pris = 10;
+let upgrademus_pris = 40;
+let HTML_pris = 15;
 
 const scoreDisplay=document.getElementById("score");
 const upgrademusDisplay=document.getElementById("upgrademusDisplay");
@@ -62,6 +63,25 @@ upgrademus.addEventListener("click", () => {
         updateMusPris();
     }
     });
+kjøpHTML.addEventListener("click", () => {
+    if (score >= HTML_pris){
+        score-=HTML_pris
+        ;
+        upgrademus_pris=upgrademus_pris*2
+        updateScore();
+        updateMusPris();
+    }
+    });
+    function loadGame() {
+        const savedScore = localStorage.getItem('score');
+        if (savedScore) score = parseInt(savedScore, 10);
+        updateScore();
+    }
+    
+    function saveGame() {
+        localStorage.setItem('score', score);
+    }
+
 
 function createNewElement() {
   // Opprett et nytt element
@@ -86,4 +106,5 @@ function createNewElement() {
   // Legg til det nye elementet i containeren
   container.appendChild(newElement);
 }
-      
+
+loadGame();

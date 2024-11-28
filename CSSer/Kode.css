@@ -54,25 +54,32 @@ button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
-#golden-cookie {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: gold;
-    border-radius: 50%;
-    border: 3px solid orange;
-    display: none;
-    cursor: pointer;
-    z-index: 100; /* Sørger for at den vises foran alt annet */
-    animation: bounce 1s infinite;
-}
-
-/* Enkel bounce-effekt for gyldne cookies */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
+/* Styling for det nye elementet */
+.new-item {
+    padding: 10px;
+    color: #f5f5dc;
+    font-size: 30px;
+    position: absolute;  /* Setter elementet til absolutt posisjonering */
+    transform: translateX(-50%); /* Finjusterer for å sikre at det er perfekt sentrert */
+    
+    /* Animasjon for å få elementene til å falle og forsvinne */
+    animation: gåopp 2s ease-out forwards;  /* 'forwards' beholder sluttegenskapene etter animasjonen */
+  }
+  
+  /* Animasjon for å få elementene til å falle */
+  @keyframes gåopp {
+    0% {
+      top: 125px;  /* Start posisjon over skjermen */
+      opacity: 0.5;  /* Start svak synlighet */
     }
     50% {
-        transform: translateY(-10px);
+      top: 25px;  /* Midtpunkt i animasjonen */
+      opacity: 1;  /* Elementet blir synlig når det når midten */
     }
-}
+    100% {
+      top: 0px;  /* Sluttposisjon på skjermen */
+      opacity: 0;  /* Fader ut */
+      transform: translateX(-50%) scale(0.5);  /* Gjør elementet litt mindre når det forsvinner */
+    }
+  }
+  

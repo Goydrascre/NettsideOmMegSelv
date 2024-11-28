@@ -30,13 +30,60 @@ function pulls() {
 }
 let score = 0;
 let cookiePerClick = 1;
+let upgrademus_pris = 10;
 
 const scoreDisplay=document.getElementById("score");
+const upgrademusDisplay=document.getElementById("upgrademusDisplay");
+const cookie = document.getElementById("cookie")
 const upgrademus = document.getElementById("upgrade1");
 const byggning1 = document.getElementById("byggning1");
 const byggning2 = document.getElementById("byggning2");
 const byggning3 = document.getElementById("byggning3");
 
 function updateScore() {
-    scoreDisplay.textContent = `Poeng: ${score}`;
+    scoreDisplay.textContent = `${score}kr`;
 }
+function updateMusPris() {
+    upgrademusDisplay.textContent = `kjøp bedre mus for: ${upgrademus_pris}kr`;
+}
+cookie.addEventListener("click", () => {
+    score += cookiePerClick;
+    updateScore();
+    createNewElement();
+
+});
+
+upgrademus.addEventListener("click", () => {
+    if (score >= upgrademus_pris){
+        score-=upgrademus_pris
+        cookiePerClick+= 1;
+        upgrademus_pris=upgrademus_pris*2
+        updateScore();
+        updateMusPris();
+    }
+    });
+
+function createNewElement() {
+  // Opprett et nytt element
+  var newElement = document.createElement('div');
+  newElement.textContent = `${cookiePerClick}`;
+  
+  // Legg til en klasse for styling
+  newElement.classList.add('new-item');
+  
+  // Finn containeren hvor det nye elementet skal legges til
+  var container = document.getElementById('container');
+  
+  // Beregn musekoordinatene relative til containeren
+  var rect = container.getBoundingClientRect();  // Finn posisjonen til containeren
+  var mouseX = event.clientX - rect.left;  // Juster X-koordinaten
+  var mouseY = event.clientY - rect.top;   // Juster Y-koordinaten
+  
+  // Posisjoner elementet på musepekeren
+  newElement.style.left = mouseX + 'px';
+  newElement.style.top = mouseY + 'px';
+  
+  // Legg til det nye elementet i containeren
+  container.appendChild(newElement);
+}
+      

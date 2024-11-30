@@ -59,27 +59,23 @@ button:disabled {
     padding: 10px;
     color: #f5f5dc;
     font-size: 30px;
-    position: absolute;  /* Setter elementet til absolutt posisjonering */
-    transform: translateX(-50%); /* Finjusterer for å sikre at det er perfekt sentrert */
-    
-    /* Animasjon for å få elementene til å falle og forsvinne */
-    animation: gåopp 2s ease-out forwards;  /* 'forwards' beholder sluttegenskapene etter animasjonen */
-  }
-  
-  /* Animasjon for å få elementene til å falle */
-  @keyframes gåopp {
-    0% {
-      top: 125px;  /* Start posisjon over skjermen */
-      opacity: 0.5;  /* Start svak synlighet */
+    position: absolute; /* Setter elementet til absolutt posisjonering */
+    transform: translateX(-50%); /* Sørger for at elementet er horisontalt sentrert */
+    animation: gåopp 2s ease-out forwards; /* 'forwards' beholder sluttegenskapene etter animasjonen */
+    pointer-events: none;
+}
+    @keyframes gåopp {
+        0% {
+            transform: translateX(-50%) scale(1); /* Beholder sentrering */
+            opacity: 0.5; /* Start svak synlighet */
+        }
+        50% {
+            transform: translateX(-50%) scale(1.1); /* Liten vekst for effekt */
+            opacity: 1; /* Full synlighet */
+        }
+        100% {
+            transform: translateX(-50%) scale(0.5); /* Krymper litt */
+            opacity: 0; /* Fader ut */
+            top: -5px; /* Flytter elementet oppover */
+        }
     }
-    50% {
-      top: 25px;  /* Midtpunkt i animasjonen */
-      opacity: 1;  /* Elementet blir synlig når det når midten */
-    }
-    100% {
-      top: 0px;  /* Sluttposisjon på skjermen */
-      opacity: 0;  /* Fader ut */
-      transform: translateX(-50%) scale(0.5);  /* Gjør elementet litt mindre når det forsvinner */
-    }
-  }
-  

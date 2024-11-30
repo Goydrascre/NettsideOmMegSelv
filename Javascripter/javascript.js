@@ -114,35 +114,8 @@ function createNewElement(event) {
         newElement.remove();
     }, 2000);
 }
-
-// Reset button listener
-const resetButton = document.getElementById("resetButton");
-
-resetButton.addEventListener("click", () => {
+const resetButton = document.getElementById("ResetButton");
+resetButton.addEventListener('click', function () {
+    alert("lalalalal");
     localStorage.clear();
-    alert("Knappen virker!");
-    // Tilbakestill spillvariabler
-    score = 0;
-    cookiePerClick = 1;
-    upgrademus_pris = 40;
-    HTML_pris = 15;
-
-    // Tøm localStorage
-    localStorage.clear();
-
-    // Oppdater UI for å reflektere tilbakestillingen
-    updateScore();
-    updateMusPris();
-    updateHTMLPris();
-
-    // Oppdater localStorage med de nye verdiene
-    localStorage.setItem("score", score);
-    localStorage.setItem("cookiePerClick", cookiePerClick);
-    localStorage.setItem("upgrademus_pris", upgrademus_pris);
-    localStorage.setItem("HTML_pris", HTML_pris);
 });
-
-// Initialiser visningen med lagrede verdier eller standardverdier
-updateScore();
-updateMusPris();
-updateHTMLPris();

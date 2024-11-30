@@ -28,10 +28,12 @@ function pulls() {
         document.getElementById("resultat").innerHTML = "Du har ikke nok pulls til å få en karakter garantert";
     }
 }
-let score = 0;
-let cookiePerClick = 1;
-let upgrademus_pris = 40;
-let HTML_pris = 15;
+
+// Set default values if no saved data exists in localStorage
+let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
+let cookiePerClick = localStorage.getItem("cookiePerClick") ? parseInt(localStorage.getItem("cookiePerClick")) : 1;
+let upgrademus_pris = localStorage.getItem("upgrademus_pris") ? parseInt(localStorage.getItem("upgrademus_pris")) : 40;
+let HTML_pris = localStorage.getItem("HTML_pris") ? parseInt(localStorage.getItem("HTML_pris")) : 15;
 
 const scoreDisplay = document.getElementById("score");
 const upgrademusDisplay = document.getElementById("upgrademusDisplay");
@@ -39,30 +41,43 @@ const cookie = document.getElementById("cookie");
 const upgrademus = document.getElementById("upgrade1");
 const kjøpHTML = document.getElementById("kjøpHTML");
 
+// Function to update the score display
 function updateScore() {
     scoreDisplay.textContent = `${score}kr`;
+    localStorage.setItem("score", score); // Save score to localStorage
 }
 
+// Function to update the price of the mouse upgrade
 function updateMusPris() {
     upgrademusDisplay.textContent = `kjøp bedre mus for: ${upgrademus_pris}kr`;
+    localStorage.setItem("upgrademus_pris", upgrademus_pris); // Save mouse price to localStorage
 }
 
+// Update the HTML price
+function updateHTMLPris() {
+    localStorage.setItem("HTML_pris", HTML_pris); // Save HTML price to localStorage
+}
+
+// Event listener for clicking on the cookie (increases score)
 cookie.addEventListener("click", (event) => {
     score += cookiePerClick;
     updateScore();
     createNewElement(event);
 });
 
+// Event listener for upgrading the mouse
 upgrademus.addEventListener("click", () => {
     if (score >= upgrademus_pris) {
         score -= upgrademus_pris;
         cookiePerClick += 1;
         upgrademus_pris = upgrademus_pris * 2;
         updateScore();
-        updateMusPris();
+        localStorage.setItem("cookiePerClick", cookiePerClick);
+        updateMusPris(); // Make sure to update the mouse price as well
     }
 });
 
+// Event listener for upgrading HTML
 kjøpHTML.addEventListener("click", () => {
     if (score >= HTML_pris) {
         score -= HTML_pris;
@@ -72,67 +87,62 @@ kjøpHTML.addEventListener("click", () => {
     }
 });
 
+// Function to create a new element at the mouse position
 function createNewElement(event) {
     var newElement = document.createElement('div');
     newElement.textContent = `${cookiePerClick}`;
     newElement.classList.add('new-item');
-    
-    var container = document.getElementById('container');
-    var rect = container.getBoundingClientRect();  // Finn posisjonen til containeren
-    var mouseX = event.clientX - rect.left;  // Juster X-koordinaten
-    var mouseY = event.clientY - rect.top;   // Juster Y-koordinaten
 
-    // Legg til et tilfeldig avvik i X-posisjonen (f.eks. mellom -50 og 50 piksler)
+    var container = document.getElementById('container');
+    var rect = container.getBoundingClientRect();  // Find position of container
+    var mouseX = event.clientX - rect.left;  // Adjust X-coordinate
+    var mouseY = event.clientY - rect.top;   // Adjust Y-coordinate
+
+    // Add a random offset to the X-position (e.g., between -50 and 50 pixels)
     var randomOffset = Math.floor(Math.random() * 51) - 25;
     var randomX = mouseX + randomOffset;
 
-    // Posisjoner elementet på musepekeren
+    // Position the new element near the mouse pointer
     newElement.style.left = randomX + 'px';
     newElement.style.top = mouseY + 'px';
 
-    // Legg til det nye elementet i containeren
+    // Append the new element to the container
     container.appendChild(newElement);
 
+    // Remove the element after 2 seconds
     setTimeout(() => {
         newElement.remove();
-        saveProgress();  // Oppdater lagret fremdrift etter at elementet er fjernet
     }, 2000);
 }
 
-// Lagre fremdriften i localStorage
-function saveProgress() {
-    localStorage.setItem('score', score);
-    localStorage.setItem('cookiePerClick', cookiePerClick);
-    localStorage.setItem('upgrademus_pris', upgrademus_pris);
-    localStorage.setItem('HTML_pris', HTML_pris);
-}
-function loadProgress() {
-    const savedScore = localStorage.getItem('score');
-    const savedCookiePerClick = localStorage.getItem('cookiePerClick');
-    const savedUpgradeMusPris = localStorage.getItem('upgrademus_pris');
-    const savedHTMLPris = localStorage.getItem('HTML_pris');
-}
+// Reset button listener
+const resetButton = document.getElementById("resetButton");
 
-// Hent og gjenopprett fremdriften fra localStorage når siden lastes
-function loadProgress() {
-    var elements = JSON.parse(localStorage.getItem('elements'));
+resetButton.addEventListener("click", () => {
+    localStorage.clear();
+    alert("Knappen virker!");
+    // Tilbakestill spillvariabler
+    score = 0;
+    cookiePerClick = 1;
+    upgrademus_pris = 40;
+    HTML_pris = 15;
 
-    if (elements) {
-        var container = document.getElementById('container');
+    // Tøm localStorage
+    localStorage.clear();
 
-        // Legg til elementene tilbake på riktig posisjon
-        elements.forEach(function (elementData) {
-            var newElement = document.createElement('div');
-            newElement.textContent = elementData.content;
-            newElement.classList.add('new-item');
-            newElement.style.position = 'absolute';
-            newElement.style.left = elementData.x + 'px';
-            newElement.style.top = elementData.y + 'px';
+    // Oppdater UI for å reflektere tilbakestillingen
+    updateScore();
+    updateMusPris();
+    updateHTMLPris();
 
-            container.appendChild(newElement);
-        });
-    }
-}
+    // Oppdater localStorage med de nye verdiene
+    localStorage.setItem("score", score);
+    localStorage.setItem("cookiePerClick", cookiePerClick);
+    localStorage.setItem("upgrademus_pris", upgrademus_pris);
+    localStorage.setItem("HTML_pris", HTML_pris);
+});
 
-// Kall på loadProgress når siden lastes
-window.onload = loadProgress;
+// Initialiser visningen med lagrede verdier eller standardverdier
+updateScore();
+updateMusPris();
+updateHTMLPris();

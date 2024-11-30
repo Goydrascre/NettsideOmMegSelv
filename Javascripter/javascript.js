@@ -114,8 +114,11 @@ function createNewElement(event) {
         newElement.remove();
     }, 2000);
 }
-const resetButton = document.getElementById("ResetButton");
-resetButton.addEventListener('click', function () {
-    alert("lalalalal");
+
+button.addEventListener('click', function () {
     localStorage.clear();
+    while (ul.firstChild) {
+        ul.removeChild(ul.firstChild);
+    }
+    items = []; // Reset the items array
 });

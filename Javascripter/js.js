@@ -11,7 +11,8 @@ const liMaker = (text) => {
 };
 
 // Load items from localStorage and display them
-let items = JSON.parse(localStorage.getItem('items')) || [];
+let items = JSON.parse(localStorage.getItem('items')) ||
+ [];
 
 items.forEach((item) => {
     liMaker(item);

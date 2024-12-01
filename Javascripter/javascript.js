@@ -37,6 +37,7 @@ let en_pris = localStorage.getItem("1_pris") ? parseInt(localStorage.getItem("1_
 let autocookies = localStorage.getItem("autocookies") ? parseInt(localStorage.getItem("autocookies")) : 0;
 
 const scoreDisplay = document.getElementById("score");
+const autocookiesDisplay = document.getElementById("autocookies")
 const upgrademusDisplay = document.getElementById("upgrademusDisplay");
 const upgrade1Display = document.getElementById("upgrade1Display");
 const cookie = document.getElementById("cookie");
@@ -48,12 +49,17 @@ document.addEventListener("DOMContentLoaded", () => {
     updateScore(); // Update score display
     updateMusPris(); // Update mouse upgrade price
     update1Pris();
+    updatecps();
 });
 
 // Function to update the score display
 function updateScore() {
     scoreDisplay.textContent = `${score}kr`;
     localStorage.setItem("score", score); // Save score to localStorage
+}
+function updatecps() {
+    autocookiesDisplay.textContent = `per sekund ${autocookies}`;
+    localStorage.setItem("autocookies", autocookies);
 }
 
 // Function to update the price of the mouse upgrade
@@ -92,7 +98,7 @@ kjøp1.addEventListener("click", () => {
         en_pris = en_pris * 2;
         autocookies = autocookies +1;
         localStorage.setItem("1_pris", en_pris);
-        localStorage.setItem("autocookies", autocookies);
+        updatecps();
         update1Pris();
     }
 });

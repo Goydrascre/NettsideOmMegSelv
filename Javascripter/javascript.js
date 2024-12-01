@@ -36,7 +36,6 @@ let upgrademus_pris = localStorage.getItem("upgrademus_pris") ? parseInt(localSt
 let en_pris = localStorage.getItem("1_pris") ? parseInt(localStorage.getItem("1_pris")) : 15;
 let autocookies = localStorage.getItem("autocookies") ? parseInt(localStorage.getItem("autocookies")) : 0;
 
-// DOM elements
 const scoreDisplay = document.getElementById("score");
 const upgrademusDisplay = document.getElementById("upgrademusDisplay");
 const upgrade1Display = document.getElementById("upgrade1Display");
@@ -91,15 +90,16 @@ kjøp1.addEventListener("click", () => {
     if (score >= en_pris) {
         score -= en_pris;
         en_pris = en_pris * 2;
-        setInterval(() => {
-            score++;
-            updateScore();
-        }, 1000); 
-        updateScore();
+        autocookies = autocookies +1;
         localStorage.setItem("1_pris", en_pris);
+        localStorage.setItem("autocookies", autocookies);
         update1Pris();
     }
 });
+setInterval(() => {
+    score = score+autocookies;
+    updateScore();
+}, 1000); 
 
 // Function to create a new floating element
 function createNewElement(event) {

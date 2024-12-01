@@ -33,13 +33,23 @@ function pulls() {
 let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
 let cookiePerClick = localStorage.getItem("cookiePerClick") ? parseInt(localStorage.getItem("cookiePerClick")) : 1;
 let upgrademus_pris = localStorage.getItem("upgrademus_pris") ? parseInt(localStorage.getItem("upgrademus_pris")) : 40;
-let HTML_pris = localStorage.getItem("HTML_pris") ? parseInt(localStorage.getItem("HTML_pris")) : 15;
+let en_pris = localStorage.getItem("1_pris") ? parseInt(localStorage.getItem("1_pris")) : 15;
+let autocookies = localStorage.getItem("autocookies") ? parseInt(localStorage.getItem("autocookies")) : 0;
 
+// DOM elements
 const scoreDisplay = document.getElementById("score");
 const upgrademusDisplay = document.getElementById("upgrademusDisplay");
+const upgrade1Display = document.getElementById("upgrade1Display");
 const cookie = document.getElementById("cookie");
 const upgrademus = document.getElementById("upgrade1");
-const kjøpHTML = document.getElementById("kjøpHTML");
+const kjøp1 = document.getElementById("kjøp1");
+
+// Update the UI when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    updateScore(); // Update score display
+    updateMusPris(); // Update mouse upgrade price
+    update1Pris();
+});
 
 // Function to update the score display
 function updateScore() {
@@ -52,17 +62,16 @@ function updateMusPris() {
     upgrademusDisplay.textContent = `kjøp bedre mus for: ${upgrademus_pris}kr`;
     localStorage.setItem("upgrademus_pris", upgrademus_pris); // Save mouse price to localStorage
 }
-
-// Update the HTML price
-function updateHTMLPris() {
-    localStorage.setItem("HTML_pris", HTML_pris); // Save HTML price to localStorage
+function update1Pris() {
+    upgrade1Display.textContent = `kjøp bedre autoclicker for: ${en_pris}kr`;
+    localStorage.setItem("1_pris", en_pris); // Save mouse price to localStorage
 }
 
 // Event listener for clicking on the cookie (increases score)
 cookie.addEventListener("click", (event) => {
     score += cookiePerClick;
     updateScore();
-    createNewElement(event);
+    createNewElement(event); // Create the floating number animation
 });
 
 // Event listener for upgrading the mouse
@@ -73,52 +82,51 @@ upgrademus.addEventListener("click", () => {
         upgrademus_pris = upgrademus_pris * 2;
         updateScore();
         localStorage.setItem("cookiePerClick", cookiePerClick);
-        updateMusPris(); // Make sure to update the mouse price as well
+        updateMusPris(); // Update the mouse price as well
     }
 });
 
 // Event listener for upgrading HTML
-kjøpHTML.addEventListener("click", () => {
-    if (score >= HTML_pris) {
-        score -= HTML_pris;
-        upgrademus_pris = upgrademus_pris * 2;
+kjøp1.addEventListener("click", () => {
+    if (score >= en_pris) {
+        score -= en_pris;
+        en_pris = en_pris * 2;
+        setInterval(() => {
+            score++;
+            updateScore();
+        }, 1000); 
         updateScore();
-        updateMusPris();
+        localStorage.setItem("1_pris", en_pris);
+        update1Pris();
     }
 });
 
-// Function to create a new element at the mouse position
+// Function to create a new floating element
 function createNewElement(event) {
-    var newElement = document.createElement('div');
-    newElement.textContent = `${cookiePerClick}`;
-    newElement.classList.add('new-item');
+    var newElement = document.createElement("div");
+    newElement.textContent = `+${cookiePerClick}`;
+    newElement.classList.add("new-item");
 
-    var container = document.getElementById('container');
-    var rect = container.getBoundingClientRect();  // Find position of container
-    var mouseX = event.clientX - rect.left;  // Adjust X-coordinate
-    var mouseY = event.clientY - rect.top;   // Adjust Y-coordinate
+    var container = document.getElementById("container");
+    var rect = container.getBoundingClientRect();
+    var mouseX = event.clientX - rect.left;
+    var mouseY = event.clientY - rect.top;
 
-    // Add a random offset to the X-position (e.g., between -50 and 50 pixels)
     var randomOffset = Math.floor(Math.random() * 51) - 25;
     var randomX = mouseX + randomOffset;
 
-    // Position the new element near the mouse pointer
-    newElement.style.left = randomX + 'px';
-    newElement.style.top = mouseY + 'px';
+    newElement.style.left = randomX + "px";
+    newElement.style.top = mouseY + "px";
 
-    // Append the new element to the container
     container.appendChild(newElement);
 
-    // Remove the element after 2 seconds
     setTimeout(() => {
         newElement.remove();
     }, 2000);
 }
 
-button.addEventListener('click', function () {
+// Button to clear localStorage and reset the game
+document.getElementById("resetButton").addEventListener("click", function () {
     localStorage.clear();
-    while (ul.firstChild) {
-        ul.removeChild(ul.firstChild);
-    }
-    items = []; // Reset the items array
+    location.reload(); // Reload the page to reset the game
 });

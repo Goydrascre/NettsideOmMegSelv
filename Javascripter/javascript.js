@@ -36,6 +36,8 @@ let upgrademus_pris = localStorage.getItem("upgrademus_pris") ? parseInt(localSt
 let en_pris = localStorage.getItem("1_pris") ? parseInt(localStorage.getItem("1_pris")) : 15;
 let autocookies = localStorage.getItem("autocookies") ? parseInt(localStorage.getItem("autocookies")) : 0;
 
+const gameArea = document.getElementById("game-area"); // Endre dette til container-elementet ditt
+const goldenCookie = document.getElementById("golden-cookie");
 const scoreDisplay = document.getElementById("score");
 const autocookiesDisplay = document.getElementById("autocookies")
 const upgrademusDisplay = document.getElementById("upgrademusDisplay");
@@ -106,33 +108,3 @@ setInterval(() => {
     score = score+autocookies;
     updateScore();
 }, 1000); 
-
-// Function to create a new floating element
-function createNewElement(event) {
-    var newElement = document.createElement("div");
-    newElement.textContent = `+${cookiePerClick}`;
-    newElement.classList.add("new-item");
-
-    var container = document.getElementById("container");
-    var rect = container.getBoundingClientRect();
-    var mouseX = event.clientX - rect.left;
-    var mouseY = event.clientY - rect.top;
-
-    var randomOffset = Math.floor(Math.random() * 51) - 25;
-    var randomX = mouseX + randomOffset;
-
-    newElement.style.left = randomX + "px";
-    newElement.style.top = mouseY + "px";
-
-    container.appendChild(newElement);
-
-    setTimeout(() => {
-        newElement.remove();
-    }, 2000);
-}
-
-// Button to clear localStorage and reset the game
-document.getElementById("resetButton").addEventListener("click", function () {
-    localStorage.clear();
-    location.reload(); // Reload the page to reset the game
-});

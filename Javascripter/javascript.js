@@ -84,7 +84,7 @@ cookie.addEventListener("click", (event) => {
     // Fjerner klassen etter 1 sekund
     setTimeout(() => {
         cookie.classList.remove('groot-swag-click');
-    }, 500);
+    }, 490);
 });
 
 // Event listener for upgrading the mouse
@@ -128,16 +128,15 @@ function createNewElement(event) {
 
     var randomOffset = Math.floor(Math.random() * 51) - 25;
     var randomX = mouseX + randomOffset;
-    var randomY = mouseY + randomOffset;
 
     newElement.style.left = randomX + "px";
-    newElement.style.top = randomY + "px";
+    newElement.style.top = mouseY + "px";
 
     container.appendChild(newElement);
 
     setTimeout(() => {
         newElement.remove();
-    }, 2000);
+    }, 1950);
 }
 // Funksjon som lager et nytt element
 function goldencookie() {

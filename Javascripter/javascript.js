@@ -79,6 +79,12 @@ cookie.addEventListener("click", (event) => {
     score += cookiePerClick;
     updateScore();
     createNewElement(event); // Create the floating number animation
+    cookie.classList.add('groot-swag-click');
+
+    // Fjerner klassen etter 1 sekund
+    setTimeout(() => {
+        cookie.classList.remove('groot-swag-click');
+    }, 500);
 });
 
 // Event listener for upgrading the mouse
@@ -113,7 +119,7 @@ setInterval(() => {
 function createNewElement(event) {
     var newElement = document.createElement("div");
     newElement.textContent = `+${cookiePerClick}`;
-    newElement.classList.add("new-item");
+    newElement.classList.add("cpc");
 
     var container = document.getElementById("container");
     var rect = container.getBoundingClientRect();
@@ -122,9 +128,10 @@ function createNewElement(event) {
 
     var randomOffset = Math.floor(Math.random() * 51) - 25;
     var randomX = mouseX + randomOffset;
+    var randomY = mouseY + randomOffset;
 
     newElement.style.left = randomX + "px";
-    newElement.style.top = mouseY + "px";
+    newElement.style.top = randomY + "px";
 
     container.appendChild(newElement);
 
@@ -132,3 +139,25 @@ function createNewElement(event) {
         newElement.remove();
     }, 2000);
 }
+// Funksjon som lager et nytt element
+function goldencookie() {
+    // Opprett et nytt div-element
+    const goldenCookie = document.createElement('div');
+    // Legg til noe innhold i elementet
+
+    // legger til css stilen//
+    goldenCookie.classList.add('golden-cookie');
+
+    goldenCookie.style.top = Math.random() * 100 + '%';
+    goldenCookie.style.left = Math.random() * 100 + '%';
+    // Legg til elementet i body
+
+    document.body.appendChild(goldenCookie);
+
+    setTimeout(() => {
+        goldenCookie.remove();
+    }, 2900);
+}
+
+// Kall createNewElement-funksjonen hvert 5. sekund (5000 millisekunder)
+setInterval(goldencookie, 5000);

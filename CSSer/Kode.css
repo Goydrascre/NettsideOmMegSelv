@@ -26,11 +26,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-#cookie {
-    width: 200px;
-    cursor: pointer;
-}
-
 #shop {
     margin-top: 20px;
 }
@@ -55,13 +50,13 @@ button:disabled {
     cursor: not-allowed;
 }
 /* Styling for det nye elementet */
-.new-item {
+.cpc {
     padding: 10px;
     color: #f5f5dc;
     font-size: 30px;
     position: absolute; /* Setter elementet til absolutt posisjonering */
     transform: translateX(-50%); /* Sørger for at elementet er horisontalt sentrert */
-    animation: gåopp 2s ease-out forwards; /* 'forwards' beholder sluttegenskapene etter animasjonen */
+    animation: gåopp 2s; 
     pointer-events: none;
 }
     @keyframes gåopp {
@@ -77,5 +72,51 @@ button:disabled {
             transform: translateX(-50%) scale(0.5); /* Krymper litt */
             opacity: 0; /* Fader ut */
             top: -5px; /* Flytter elementet oppover */
+        }
+    }
+    .golden-cookie {
+        width: 50px;
+        height: 50px;
+        background-color: gold;
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        animation: goldencookiespawn 3s ease-in-out;
+    }
+
+    @keyframes goldencookiespawn {
+        0% {
+            transform: translate(-50%, -50%) scale(0.5);
+            opacity: 0;
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(0.5);
+            opacity: 0;
+        }
+    }
+    #cookie{
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        width: 200px;
+        cursor: pointer;
+        transform: translate(0, 0);
+    }
+    .groot-swag-click {
+        animation: grootswagclick 0.5s;
+        position: absolute;
+    }
+    @keyframes grootswagclick {
+        0% {
+            transform:  scale(0.95);
+        }
+        50% {
+            transform: scale(0.9);
+        }
+        100% {
+            transform: scale(1.0);
         }
     }

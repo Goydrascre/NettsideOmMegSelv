@@ -31,10 +31,11 @@ function pulls() {
 
 // Set default values if no saved data exists in localStorage
 let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
-let cookiePerClick = localStorage.getItem("cookiePerClick") ? parseInt(localStorage.getItem("cookiePerClick")) : 1 +(autocookies/10);
 let upgrademus_pris = localStorage.getItem("upgrademus_pris") ? parseInt(localStorage.getItem("upgrademus_pris")) : 40;
 let en_pris = localStorage.getItem("1_pris") ? parseInt(localStorage.getItem("1_pris")) : 15;
 let autocookies = localStorage.getItem("autocookies") ? parseInt(localStorage.getItem("autocookies")) : 0;
+let cookiePerClick = localStorage.getItem("cookiePerClick") ? parseInt(localStorage.getItem("cookiePerClick")) : 1;
+let isFrenzyActive = localStorage.getItem("isFrenzyActive") ? JSON.parse(localStorage.getItem("isFrenzyActive")) : false;
 
 const gameArea = document.getElementById("game-area"); // Endre dette til container-elementet ditt
 const goldenCookie = document.getElementById("golden-cookie");
@@ -52,6 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateMusPris(); // Update mouse upgrade price
     update1Pris();
     updatecps();
+    if (isFrenzyActive === true){
+        alert("nwdnk")
+        isFrenzyActive=false;
+        autocookies /= 7;
+        updatecps();
+    }
 });
 
 // Function to update the score display
@@ -161,11 +168,17 @@ function goldencookie() {
 setInterval(goldencookie, 5000);
 
 document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("golden-cookie")) {
+    if (event.target.classList.contains("golden-cookie")&& isFrenzyActive === false) {
         autocookies *= 7;
+        isFrenzyActive=true
+        localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
+        updatecps();
         event.target.remove();
         setTimeout(() => {
+            isFrenzyActive=false;
+            localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
             autocookies /= 7;
-        }, 60000);
+            updatecps();
+        }, 10000);
     }
 });

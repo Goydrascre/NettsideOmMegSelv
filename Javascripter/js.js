@@ -45,3 +45,4 @@ button.addEventListener('click', function () {
     items = []; // Reset the items array
 });
 
+

@@ -31,7 +31,7 @@ function pulls() {
 
 // Set default values if no saved data exists in localStorage
 let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
-let upgrademus_pris = localStorage.getItem("upgrademus_pris") ? parseInt(localStorage.getItem("upgrademus_pris")) : 40;
+let upgrademus_pris = localStorage.getItem("upgrademus_pris") ? parseInt(localStorage.getItem("upgrademus_pris")) : 4;
 let en_pris = localStorage.getItem("1_pris") ? parseInt(localStorage.getItem("1_pris")) : 15;
 let autocookies = localStorage.getItem("autocookies") ? parseInt(localStorage.getItem("autocookies")) : 0;
 let cookiePerClick = localStorage.getItem("cookiePerClick") ? parseInt(localStorage.getItem("cookiePerClick")) : 1;
@@ -120,6 +120,7 @@ kjøp1.addEventListener("click", () => {
         localStorage.setItem("1_pris", en_pris);
         updatecps();
         update1Pris();
+        updatescore();
     }
 });
 setInterval(() => {

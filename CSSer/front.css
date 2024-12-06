@@ -123,6 +123,7 @@ h2{
 }
 .p1{
   font-size: clamp(16px, 3vw, 30px);
+  margin-bottom: 20px; /* Juster mellomrommet her */
 }
 .prosjekter_tittel{
   font-size: clamp(10px, 2vw, 20px);
@@ -141,4 +142,24 @@ th, td {
   background-color: #7eb9c7;
   text-align: left;
 }
+thf, tdf {
+  text-align: left;
+}
 
+.link-row {
+  display: flex;          /* Bruk flexbox for strukturert layout */
+  align-items: center;    /* Sørger for at innholdet justeres på midten */
+  margin-bottom: 15px;    /* Avstand mellom rader */
+}
+
+.link-row a {
+  width: 60px;            /* Fast bredde for "Her"-lenkene */
+  text-align: left;       /* Juster tekst inni lenken */
+  margin-right: 10px;     /* Avstand mellom linken og teksten */
+  text-decoration: none;  /* Fjern understrek på lenken */
+  color: blue;            /* Standard linkfarge */
+}
+
+.link-row span {
+  flex: 1;                /* Sørger for at teksten fyller resten av plassen */
+}

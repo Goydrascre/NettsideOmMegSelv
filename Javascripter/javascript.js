@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
     update1Pris();
     updatecps();
     if (isFrenzyActive === true){
-        alert("nwdnk")
         isFrenzyActive=false;
+        localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
         autocookies /= 7;
         updatecps();
     }
@@ -111,7 +111,12 @@ kjøp1.addEventListener("click", () => {
     if (score >= en_pris) {
         score -= en_pris;
         en_pris = en_pris * 2;
-        autocookies = autocookies +1;
+        if(isFrenzyActive === true){
+            autocookies +=7;
+        }
+        else{
+            autocookies+=1;
+        }
         localStorage.setItem("1_pris", en_pris);
         updatecps();
         update1Pris();
@@ -162,10 +167,10 @@ function goldencookie() {
 
     setTimeout(() => {
         goldenCookie.remove();
-    }, 2950);
+    }, 4950);
 }
 
-setInterval(goldencookie, 5000);
+setInterval(goldencookie, 60000);
 
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("golden-cookie")&& isFrenzyActive === false) {
@@ -179,6 +184,6 @@ document.addEventListener("click", (event) => {
             localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
             autocookies /= 7;
             updatecps();
-        }, 10000);
+        }, 20000);
     }
 });

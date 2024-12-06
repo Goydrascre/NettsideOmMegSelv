@@ -112,10 +112,10 @@ kjøp1.addEventListener("click", () => {
         score -= en_pris;
         en_pris = en_pris * 2;
         if(isFrenzyActive === true){
-            autocookies +=7;
+            autocookies += 7;
         }
         else{
-            autocookies+=1;
+            autocookies += 1;
         }
         localStorage.setItem("1_pris", en_pris);
         updatecps();

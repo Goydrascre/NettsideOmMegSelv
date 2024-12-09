@@ -16,8 +16,16 @@
             <h2>Butikk</h2>
             <button id="upgrade1"><p id="upgrademusDisplay">kjøp bedre mus for: 40kr</p></button>
             <button id="kjøp1"><p id="upgrade1Display">kjøp autoclicker for: 15kr</p></button>
+            <form id="saveScoreForm">
+                <input type="text" id="playerName" placeholder="Navn" required>
+                <button type="submit">Lagre score</button>
+              </form>
+              <div id="leaderboard">
+                <h2>Leaderboard</h2>
+                <ul id="leaderboardList"></ul>
+              </div>
         </div>
 </div>
-    <script src="../Javascripter/javascript.js"></script>
+        <script type="module" src="../Javascripter/javascript.js"></script>
 </body>
 </html>

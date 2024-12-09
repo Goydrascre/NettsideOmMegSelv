@@ -1,33 +1,3 @@
-function pulls() {
-    let kan_få_karakter = true;
-    const primos = Number(prompt("Hvor mange primogems har du?"));
-    const intertwinedFate = Number(prompt("Hvor mange Intertwined Fates har du?"));
-    const starglitter = Number(prompt("Hvor mye starglitter har du?"));
-    const cons = Number(prompt("Hvor mange constellations har du? (skriv -1 hvis du ikke har karakteren)"));
-
-    // Beregn antall pulls
-    const totalPulls = Math.floor(primos / 160) + intertwinedFate + Math.floor(starglitter / 5);
-    let garantertCons = Math.floor(totalPulls / 180) + cons;
-
-    // Begrens antall cons til maks 6
-    if (garantertCons > 6) {
-        garantertCons = 6;
-    }
-
-    // Sjekk om man kan få minst én constellation
-    if (garantertCons <= cons) {
-        kan_få_karakter = false;
-    }
-
-    // Oppdater HTML-elementer
-    document.getElementById("antallpulls").innerHTML = "Du kan gjøre totalt " + totalPulls + " pulls";
-
-    if (kan_få_karakter) {
-        document.getElementById("resultat").innerHTML = "Du kan garantert få constellation " + garantertCons;
-    } else {
-        document.getElementById("resultat").innerHTML = "Du har ikke nok pulls til å få en karakter garantert";
-    }
-}
 
 // Set default values if no saved data exists in localStorage
 let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
@@ -46,6 +16,9 @@ const upgrade1Display = document.getElementById("upgrade1Display");
 const cookie = document.getElementById("cookie");
 const upgrademus = document.getElementById("upgrade1");
 const kjøp1 = document.getElementById("kjøp1");
+const leaderboardList = document.getElementById('leaderboardList');
+const saveScoreForm = document.getElementById('saveScoreForm');
+const playerNameInput = document.getElementById('playerName');
 
 // Update the UI when the page loads
 document.addEventListener("DOMContentLoaded", () => {
@@ -120,7 +93,8 @@ kjøp1.addEventListener("click", () => {
         localStorage.setItem("1_pris", en_pris);
         updatecps();
         update1Pris();
-        updatescore();
+        updateScore();
+        
     }
 });
 setInterval(() => {
@@ -168,7 +142,7 @@ function goldencookie() {
 
     setTimeout(() => {
         goldenCookie.remove();
-    }, 4950);
+    }, 6950);
 }
 
 setInterval(goldencookie, 60000);
@@ -188,3 +162,43 @@ document.addEventListener("click", (event) => {
         }, 20000);
     }
 });
+saveScoreForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const playerName = playerNameInput.value;
+  
+    try {
+      await addDoc(collection(db, 'leaderboard'), {
+        name: playerName,
+        score: score,
+        timestamp: new Date()
+      });
+      alert('Score lagret!');
+      score = 0;
+      scoreDisplay.textContent = `Score: 0`;
+      playerNameInput.value = '';
+      fetchLeaderboard();
+    } catch (error) {
+      console.error('Feil ved lagring:', error);
+    }
+  });
+  
+  // Hent og vis leaderboard
+  async function fetchLeaderboard() {
+    leaderboardList.innerHTML = '';
+    const q = query(collection(db, 'leaderboard'), orderBy('score', 'desc'), limit(10));
+  
+    try {
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        const { name, score } = doc.data();
+        const li = document.createElement('li');
+        li.textContent = `${name}: ${score}`;
+        leaderboardList.appendChild(li);
+      });
+    } catch (error) {
+      console.error('Feil ved henting av leaderboard:', error);
+    }
+  }
+  
+  // Oppdater leaderboard ved oppstart
+  fetchLeaderboard();

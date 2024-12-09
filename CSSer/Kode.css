@@ -81,7 +81,7 @@ button:disabled {
         border-radius: 50%;
         position: absolute;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        animation: goldencookiespawn 5s ease-in-out;
+        animation: goldencookiespawn 7s ease-in-out;
     }
 
     @keyframes goldencookiespawn {
@@ -117,6 +117,6 @@ button:disabled {
             transform: scale(0.9);
         }
         100% {
-            transform: scale(1.0);
+            transform: scale(1);
         }
     }

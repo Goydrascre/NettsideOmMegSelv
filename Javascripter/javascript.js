@@ -17,9 +17,7 @@ const upgrade1Display = document.getElementById("upgrade1Display");
 const cookie = document.getElementById("cookie");
 const upgrademus = document.getElementById("upgrade1");
 const kjøp1 = document.getElementById("kjøp1");
-const leaderboardList = document.getElementById('leaderboardList');
-const saveScoreForm = document.getElementById('saveScoreForm');
-const playerNameInput = document.getElementById('playerName');
+const gambling = document.getElementById("gambling");
 
 // Update the UI when the page loads
 document.addEventListener("DOMContentLoaded", () => {
@@ -72,7 +70,12 @@ cookie.addEventListener("click", (event) => {
 upgrademus.addEventListener("click", () => {
     if (score >= upgrademus_pris) {
         score -= upgrademus_pris;
-        cookiePerClick += 1;
+        if(isFrenzyActive === true){
+            cookiePerClick += 7;
+        }
+        else{
+            cookiePerClick += 1;
+        }
         upgrademus_pris = upgrademus_pris * 2;
         updateScore();
         localStorage.setItem("cookiePerClick", cookiePerClick);
@@ -143,7 +146,7 @@ function goldencookie() {
 
     setTimeout(() => {
         goldenCookie.remove();
-    }, 6950);
+    }, 9950);
 }
 
 setInterval(goldencookie, 60000);
@@ -151,6 +154,7 @@ setInterval(goldencookie, 60000);
 document.addEventListener("click", (event) => {
     if (event.target.classList.contains("golden-cookie")&& isFrenzyActive === false) {
         autocookies *= 7;
+        cookiePerClick *=7;
         isFrenzyActive=true
         localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
         updatecps();
@@ -160,8 +164,10 @@ document.addEventListener("click", (event) => {
             isFrenzyActive=false;
             localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
             autocookies /= 7;
+            cookiePerClick /= 7;
             updatecps();
             timer.classList.remove('timer-bar');
         }, 20000);
     }
 });
+

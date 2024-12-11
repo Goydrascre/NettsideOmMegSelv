@@ -120,3 +120,18 @@ button:disabled {
             transform: scale(1);
         }
     }
+    .timer-bar {
+        height: 20px;
+        background-color: #ff6347; /* Farge på baren */
+        width: 10%; /* Starter med full bredde */
+        animation: shrinkBar 20s linear forwards; /* Animasjonen tar 5 sekunder og går mot 0% */
+      }
+      
+      @keyframes shrinkBar {
+        0% {
+          width: 100%; /* Full bredde */
+        }
+        100% {
+          width: 0%; /* Baren blir tynnere til 0% */
+        }
+      }

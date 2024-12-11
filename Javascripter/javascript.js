@@ -9,6 +9,7 @@ let isFrenzyActive = localStorage.getItem("isFrenzyActive") ? JSON.parse(localSt
 
 const gameArea = document.getElementById("game-area"); // Endre dette til container-elementet ditt
 const goldenCookie = document.getElementById("golden-cookie");
+const timer = document.getElementById("timer");
 const scoreDisplay = document.getElementById("score");
 const autocookiesDisplay = document.getElementById("autocookies")
 const upgrademusDisplay = document.getElementById("upgrademusDisplay");
@@ -154,51 +155,13 @@ document.addEventListener("click", (event) => {
         localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
         updatecps();
         event.target.remove();
+        timer.classList.add('timer-bar');
         setTimeout(() => {
             isFrenzyActive=false;
             localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
             autocookies /= 7;
             updatecps();
+            timer.classList.remove('timer-bar');
         }, 20000);
     }
 });
-saveScoreForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const playerName = playerNameInput.value;
-  
-    try {
-      await addDoc(collection(db, 'leaderboard'), {
-        name: playerName,
-        score: score,
-        timestamp: new Date()
-      });
-      alert('Score lagret!');
-      score = 0;
-      scoreDisplay.textContent = `Score: 0`;
-      playerNameInput.value = '';
-      fetchLeaderboard();
-    } catch (error) {
-      console.error('Feil ved lagring:', error);
-    }
-  });
-  
-  // Hent og vis leaderboard
-  async function fetchLeaderboard() {
-    leaderboardList.innerHTML = '';
-    const q = query(collection(db, 'leaderboard'), orderBy('score', 'desc'), limit(10));
-  
-    try {
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        const { name, score } = doc.data();
-        const li = document.createElement('li');
-        li.textContent = `${name}: ${score}`;
-        leaderboardList.appendChild(li);
-      });
-    } catch (error) {
-      console.error('Feil ved henting av leaderboard:', error);
-    }
-  }
-  
-  // Oppdater leaderboard ved oppstart
-  fetchLeaderboard();

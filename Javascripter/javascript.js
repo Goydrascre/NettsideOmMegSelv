@@ -169,5 +169,46 @@ document.addEventListener("click", (event) => {
             timer.classList.remove('timer-bar');
         }, 20000);
     }
+    const reel1 = document.getElementById("reel1");
+    const reel2 = document.getElementById("reel2");
+    const reel3 = document.getElementById("reel3");
+    const result = document.getElementById("result");
+    const spinButton = document.getElementById("spinButton");
+    
+    const symbols = ["🍒", "🍋", "🍉", "⭐", "🍇"];
+    
+    const spinReel = (reel, stopAfter, interval) => {
+        const intervalId = setInterval(() => {
+            reel.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        }, interval);
+    
+        setTimeout(() => {
+            clearInterval(intervalId); // Stopper oppdateringene etter `stopAfter` millisekunder
+        }, stopAfter);
+    };
+    
+    const spinReels = () => {
+        const totalSpinTime = 2000; // Maks tid i millisekunder
+        const interval = 100; // Oppdateringstid mellom symbolendringer
+    
+        spinReel(reel1, totalSpinTime, interval);        // Reel 1 stopper etter 3 sekunder
+        spinReel(reel2, totalSpinTime + 1000, interval); // Reel 2 stopper etter 3.5 sekunder
+        spinReel(reel3, totalSpinTime + 3000, interval); // Reel 3 stopper etter 4 sekunder
+    
+        // Viser resultat etter siste hjul stopper
+        setTimeout(() => {
+            const reel1Symbol = reel1.textContent;
+            const reel2Symbol = reel2.textContent;
+            const reel3Symbol = reel3.textContent;
+    
+            if (reel1Symbol === reel2Symbol && reel2Symbol === reel3Symbol) {
+                result.textContent = "🎉 Jackpot! You win! 🎉";
+            } else {
+                result.textContent = "Try again!";
+            }
+        }, totalSpinTime + 1000); // Vent til siste hjul har stoppet
+    };
+    
+    spinButton.addEventListener("click", spinReels);
+    
 });
-

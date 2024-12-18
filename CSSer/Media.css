@@ -1,7 +1,6 @@
 body {
   background-image: url(../Bilder/frontpage.png);
   background-size: cover;
-  background-color: #be0808;
 }
 header {
   text-align: center;
@@ -16,10 +15,6 @@ header {
   text-align: center;
 }
 
-.grid-item {
-  padding: 10px; /* Luft rundt hvert element */
-  font-size: 20px;
-}
 
 .videoen {
   grid-column: 1 / span 5; /* Videoen strekker seg over 5 kolonner */

@@ -5,27 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Groot Swag Clicker</title>
     <link rel="stylesheet" href="../CSSer/Kode.css">
+    <link rel="stylesheet" href="../CSSer/Front.css">
 </head>
 <body>
-    <h1>Groot Swag Clicker</h1>
+    <ul><!--meny-->
+        <li><a href="../index.html" class="meny">Hjem</a></li>
+        <li><a href="../indexHtmler/Om.html" class="meny">Om meg</a></li>
+        <li><a href="../indexHtmler/kontakt.html"class="meny">Kontakt meg</a></li>
+        <li><a href="../indexHtmler/Logg.html" class="meny">Dokumentasjon</a></li>
+        <li><a href="../indexHtmler/prosjekter.html" class="meny">Prosjekter</a></li>
+    </ul>
+    <div class="grid-container">
+        <div class="grid-item venstre">
+            <div class="slot-machine">
+                <div id="reel-1" class="reel">🍒</div>
+                <div id="reel-2" class="reel">🍋</div>
+                <div id="reel-3" class="reel">🍊</div>
+              </div>
+              <button id="spin-button">Snurr!</button>
+              <p id="result"></p>
+        </div>
+        <div class="grid-item mid">
+            <h1>Groot Swag Clicker</h1>
     <div id="timer"></div>
     <div id="container" style="position: relative;">
         <div id="score">0</div>
         <div id="autocookies">per sekund 0</div>
         <img id="cookie" src="../Bilder/grootswag.jpg" alt="Cookie">
-        <div id="shop">
+    </div>
+    </div>
+        <div class="grid-item hoyre">
             <h2>Butikk</h2>
             <button id="upgrade1"><p id="upgrademusDisplay">kjøp bedre mus for: 40kr</p></button>
             <button id="kjøp1"><p id="upgrade1Display">kjøp autoclicker for: 15kr</p></button>
-            <div class="slot-machine">
-                <div class="reel" id="reel1">🍒</div>
-                <div class="reel" id="reel2">🍋</div>
-                <div class="reel" id="reel3">🍉</div>
-            </div>
-            <button id="spinButton">Spin</button>
-            <div id="result"></div>
         </div>
-</div>
-        <script type="module" src="../Javascripter/javascript.js"></script>
+        <script src="../Javascripter/javascript.js"></script>
 </body>
 </html>

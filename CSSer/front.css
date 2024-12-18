@@ -2,6 +2,8 @@ body {
 background-image: url(../Bilder/frontpage.png);
 background-size: cover;
 background-color: #be0808;
+margin: 0;
+padding: 0;
 }
 
 ul {

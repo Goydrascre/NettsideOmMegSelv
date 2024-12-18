@@ -1,36 +1,24 @@
-.grid-container {
-    margin: 0 auto;
-    width: 90%;
-    display: grid;
-    gap: 10px;
-    background-color: #b82929;
-    padding: 10px;
+
+  .venstre{
+    grid-column: 1 / span 1;
+    grid-row: 1;
+    background-color: #e1cea0;
   }
-  
-  .grid-item {
-    background-color: rgba(204, 117, 117, 0.8);
-    text-align: center;
-    padding: 5px;
-    font-size: 30px;
+  .mid{
+    grid-column: 2 / span 1;
+    grid-row: 1;
+    background-color: #e1cea0;
   }
+  .hoyre{
+    grid-column: 3 / span 1;
+    grid-row: 1;
+    background-color: #e1cea0;
+  }
+
+
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
     background-color: #f5f5dc;
     color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    margin-top: 20px;
-}
-.idk {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: auto;
 }
 #game {
     margin: 20px auto;
@@ -46,10 +34,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-#shop {
-    margin-top: 20px;
-}
-
 button {
     display: block;
     margin: 10px auto;
@@ -63,11 +47,6 @@ button {
 
 button:hover {
     background-color: #ff9900;
-}
-
-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
 }
 /* Styling for det nye elementet */
 .cpc {
@@ -121,7 +100,7 @@ button:disabled {
     #cookie{
         position: relative;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        width: 200px;
+        width: 300px;
         cursor: pointer;
         transform: translate(0, 0);
     }
@@ -155,40 +134,29 @@ button:disabled {
           width: 0%; /* Baren blir tynnere til 0% */
         }
       }
+
       .slot-machine {
         display: flex;
         justify-content: center;
-        margin: 20px 0;
-    }
-    
-    .reel {
-        font-size: 2rem;
-        width: 60px;
-        height: 60px;
+        margin: 50px 0;
+      }
+      
+      .reel {
+        font-size: 3rem;
+        width: 80px;
+        height: 80px;
+        border: 2px solid #000;
+        border-radius: 10px;
         margin: 0 10px;
         display: flex;
-        justify-content: center;
         align-items: center;
-        border: 2px solid white;
-        border-radius: 10px;
-        background-color: #333;
-    }
-    
-    .buttonslot {
-        padding: 10px 20px;
-        font-size: 1rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        background-color: #007BFF;
-        color: white;
-    }
-    
-    .buttonslot:hover {
-        background-color: #0056b3;
-    }
-    
-    #result {
+        justify-content: center;
+        background-color: #fff;
+      }
+      
+      #result {
         margin-top: 20px;
-        font-size: 1.2rem;
-    }
+        font-size: 1.5rem;
+        color: #333;
+      }
+    

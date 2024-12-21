@@ -35,20 +35,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Function to update the score display
 function updateScore() {
+    score = Math.floor(score); // Rund av poengsummen nedover
     scoreDisplay.textContent = `${score}kr`;
-    localStorage.setItem("score", score); // Save score to localStorage
+    localStorage.setItem("score", score); // Lagre poengsummen i localStorage
 }
 function updatecps() {
+    autocookies = Math.floor(autocookies)
     autocookiesDisplay.textContent = `per sekund ${autocookies}`;
     localStorage.setItem("autocookies", autocookies);
 }
 
-// Function to update the price of the mouse upgrade
 function updateMusPris() {
+    upgrademus_pris = Math.floor(upgrademus_pris)
     upgrademusDisplay.textContent = `kjøp bedre mus for: ${upgrademus_pris}kr`;
     localStorage.setItem("upgrademus_pris", upgrademus_pris); // Save mouse price to localStorage
 }
 function update1Pris() {
+    en_pris= Math.floor(en_pris)
     upgrade1Display.textContent = `kjøp bedre autoclicker for: ${en_pris}kr`;
     localStorage.setItem("1_pris", en_pris); // Save mouse price to localStorage
 }
@@ -76,7 +79,7 @@ upgrademus.addEventListener("click", () => {
         else{
             cookiePerClick += 1;
         }
-        upgrademus_pris = upgrademus_pris * 2;
+        upgrademus_pris = upgrademus_pris * 1.5;
         updateScore();
         localStorage.setItem("cookiePerClick", cookiePerClick);
         updateMusPris(); // Update the mouse price as well
@@ -87,7 +90,7 @@ upgrademus.addEventListener("click", () => {
 kjøp1.addEventListener("click", () => {
     if (score >= en_pris) {
         score -= en_pris;
-        en_pris = en_pris * 2;
+        en_pris = en_pris * 1.5;
         if(isFrenzyActive === true){
             autocookies += 7;
         }
@@ -169,19 +172,23 @@ document.addEventListener("click", (event) => {
             timer.classList.remove('timer-bar');
         }, 20000);
     }
+
     const reel1 = document.getElementById("reel-1");
     const reel2 = document.getElementById("reel-2");
     const reel3 = document.getElementById("reel-3");
     const result = document.getElementById("result");
     const spinButton = document.getElementById("spin-button");
-    
-    const symbols = ["🍒", "🍋", "🍊", "🍇", "⭐", "🔔"];
+    const spinButtonPris = document.getElementById("spin_pris")
+    const symbols = ["🍒", "🍋", "🍊",];
     
     function getRandomSymbol() {
+
       return symbols[Math.floor(Math.random() * symbols.length)];
     }
     
     spinButton.addEventListener("click", () => {
+        if (score>1) {   
+            score=score-spinButtonPris
       // Snurr hjulene
       reel1.textContent = getRandomSymbol();
       reel2.textContent = getRandomSymbol();
@@ -195,5 +202,6 @@ document.addEventListener("click", (event) => {
         result.textContent = "Prøv igjen!";
         result.style.color = "red";
       }
+    }
     });
 });

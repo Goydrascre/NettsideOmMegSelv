@@ -6,6 +6,7 @@ let en_pris = localStorage.getItem("1_pris") ? parseInt(localStorage.getItem("1_
 let autocookies = localStorage.getItem("autocookies") ? parseInt(localStorage.getItem("autocookies")) : 0;
 let cookiePerClick = localStorage.getItem("cookiePerClick") ? parseInt(localStorage.getItem("cookiePerClick")) : 1;
 let isFrenzyActive = localStorage.getItem("isFrenzyActive") ? JSON.parse(localStorage.getItem("isFrenzyActive")) : false;
+let spinButtonPris = localStorage.getItem("spin_Button") ? parseInt(localStorage.getItem("spin_Button")) : 100;
 
 const gameArea = document.getElementById("game-area"); // Endre dette til container-elementet ditt
 const goldenCookie = document.getElementById("golden-cookie");
@@ -17,7 +18,7 @@ const upgrade1Display = document.getElementById("upgrade1Display");
 const cookie = document.getElementById("cookie");
 const upgrademus = document.getElementById("upgrade1");
 const kjøp1 = document.getElementById("kjøp1");
-const gambling = document.getElementById("gambling");
+const spinprisDisplay = document.getElementById("spin_Button")
 
 // Update the UI when the page loads
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,10 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateMusPris(); // Update mouse upgrade price
     update1Pris();
     updatecps();
+    updateSpinPris();
     if (isFrenzyActive === true){
         isFrenzyActive=false;
         localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
         autocookies /= 7;
+        cookiePerClick /= 7;
         updatecps();
     }
 });
@@ -54,6 +57,11 @@ function update1Pris() {
     en_pris= Math.floor(en_pris)
     upgrade1Display.textContent = `kjøp bedre autoclicker for: ${en_pris}kr`;
     localStorage.setItem("1_pris", en_pris); // Save mouse price to localStorage
+}
+function updateSpinPris() {
+    spinButtonPris = Math.floor(spinButtonPris);
+    spinprisDisplay.textContent = `Snurr for: ${spinButtonPris} kr`;
+    localStorage.setItem("spin_Button", spinButtonPris); 
 }
 
 // Event listener for clicking on the cookie (increases score)
@@ -172,23 +180,21 @@ document.addEventListener("click", (event) => {
             timer.classList.remove('timer-bar');
         }, 20000);
     }
-
+});
     const reel1 = document.getElementById("reel-1");
     const reel2 = document.getElementById("reel-2");
     const reel3 = document.getElementById("reel-3");
     const result = document.getElementById("result");
-    const spinButton = document.getElementById("spin-button");
-    const spinButtonPris = document.getElementById("spin_pris")
-    const symbols = ["🍒", "🍋", "🍊",];
+    const spinButton = document.getElementById("spin_Button");
+    const symbols = ["🍒", "🍋", "🍊",":)",":("];
     
     function getRandomSymbol() {
 
       return symbols[Math.floor(Math.random() * symbols.length)];
     }
-    
     spinButton.addEventListener("click", () => {
-        if (score>1) {   
-            score=score-spinButtonPris
+        if (score>spinButtonPris) {   
+            
       // Snurr hjulene
       reel1.textContent = getRandomSymbol();
       reel2.textContent = getRandomSymbol();
@@ -198,10 +204,22 @@ document.addEventListener("click", (event) => {
       if (reel1.textContent === reel2.textContent && reel2.textContent === reel3.textContent) {
         result.textContent = "Gratulerer! Du vant!";
         result.style.color = "green";
+        score += spinButtonPris*100
+        spinButtonPris=100+(autocookies*60)+(cookiePerClick*60)
+        if (spinButtonPris>999) {      
+            spinButtonPris=1000
+            }
+        updateScore();
+        updateSpinPris();
       } else {
         result.textContent = "Prøv igjen!";
         result.style.color = "red";
+        score -= spinButtonPris
+        if (spinButtonPris>50) {
+        spinButtonPris-=1
+        }
+        updateScore();
+        updateSpinPris();
       }
     }
     });
-});

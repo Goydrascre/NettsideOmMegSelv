@@ -115,6 +115,10 @@ kjøp1.addEventListener("click", () => {
 setInterval(() => {
     score = score+autocookies;
     updateScore();
+    if (spinButtonPris>50) {
+        spinButtonPris=spinButtonPris*0.995
+        updateSpinPris();
+        }
 }, 1000); 
 
 // Function to create a new floating element
@@ -178,7 +182,7 @@ document.addEventListener("click", (event) => {
             cookiePerClick /= 7;
             updatecps();
             timer.classList.remove('timer-bar');
-        }, 20000);
+        }, 10000);
     }
 });
     const reel1 = document.getElementById("reel-1");
@@ -186,7 +190,7 @@ document.addEventListener("click", (event) => {
     const reel3 = document.getElementById("reel-3");
     const result = document.getElementById("result");
     const spinButton = document.getElementById("spin_Button");
-    const symbols = ["🍒", "🍋", "🍊",":)",":("];
+    const symbols = ["🍒", "🍋", "🍊",":)",":(",":D"];
     
     function getRandomSymbol() {
 
@@ -204,11 +208,8 @@ document.addEventListener("click", (event) => {
       if (reel1.textContent === reel2.textContent && reel2.textContent === reel3.textContent) {
         result.textContent = "Gratulerer! Du vant!";
         result.style.color = "green";
-        score += spinButtonPris*100
-        spinButtonPris=100+(autocookies*60)+(cookiePerClick*60)
-        if (spinButtonPris>999) {      
-            spinButtonPris=1000
-            }
+        score += spinButtonPris*50
+        spinButtonPris=spinButtonPris+(autocookies*60)+(cookiePerClick*60)+(score/60)
         updateScore();
         updateSpinPris();
       } else {
@@ -216,7 +217,7 @@ document.addEventListener("click", (event) => {
         result.style.color = "red";
         score -= spinButtonPris
         if (spinButtonPris>50) {
-        spinButtonPris-=1
+        spinButtonPris=spinButtonPris*0.99
         }
         updateScore();
         updateSpinPris();

@@ -123,7 +123,7 @@ button:hover {
         height: 20px;
         background-color: #ff6347; /* Farge på baren */
         width: 10%; /* Starter med full bredde */
-        animation: shrinkBar 20s linear forwards; /* Animasjonen tar 5 sekunder og går mot 0% */
+        animation: shrinkBar 10s linear forwards; /* Animasjonen tar 5 sekunder og går mot 0% */
       }
       
       @keyframes shrinkBar {

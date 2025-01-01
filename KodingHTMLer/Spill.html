@@ -6,6 +6,7 @@
     <title>Groot Stil Trykker</title>
     <link rel="stylesheet" href="../CSSer/Kode.css">
     <link rel="stylesheet" href="../CSSer/front.css">
+    <script src="../Javascripter/Front.js"></script>
 </head>
 <body>
     <ul><!--meny-->
@@ -14,6 +15,14 @@
         <li><a href="../indexHtmler/kontakt.html"class="meny">Kontakt meg</a></li>
         <li><a href="../indexHtmler/Logg.html" class="meny">Dokumentasjon</a></li>
         <li><a href="../indexHtmler/prosjekter.html" class="meny">Prosjekter</a></li>
+        <li class="dropdown">
+            <a class="dropbtn meny">Meny</a>
+            <div class="dropdown-content">
+              <a href="#">Lenke 1</a>
+              <a href="#">Lenke 2</a>
+              <a href="#">Lenke 3</a>
+            </div>
+          </li>
     </ul>
     <div class="grid-container">
         <div class="grid-item venstre">
@@ -24,6 +33,7 @@
               </div>
               <button id="spin_Button">Snurr for: 0kr</button>
               <p id="result"></p>
+              <button id="restart">start på nytt</button>
         </div>
         <div class="grid-item mid">
             <h1>Groot Stil Trykker</h1>

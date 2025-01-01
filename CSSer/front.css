@@ -141,27 +141,37 @@ table {
 th, td {
   border: 3px solid #7f1010;
   padding: 8px;
-  background-color: #7eb9c7;
+  background-color: rgba(214, 142, 142, 0.8);
   text-align: left;
 }
-thf, tdf {
+tr, tdf {
+  text-align: left;
+}
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
   text-align: left;
 }
 
-.link-row {
-  display: flex;          /* Bruk flexbox for strukturert layout */
-  align-items: center;    /* Sørger for at innholdet justeres på midten */
-  margin-bottom: 15px;    /* Avstand mellom rader */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
 }
 
-.link-row a {
-  width: 60px;            /* Fast bredde for "Her"-lenkene */
-  text-align: left;       /* Juster tekst inni lenken */
-  margin-right: 10px;     /* Avstand mellom linken og teksten */
-  text-decoration: none;  /* Fjern understrek på lenken */
-  color: blue;            /* Standard linkfarge */
-}
-
-.link-row span {
-  flex: 1;                /* Sørger for at teksten fyller resten av plassen */
+li a:hover {
+  background-color: red;
 }

@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Andreas sin nettside</title> <!-- Page title -->
     <link rel="stylesheet" href="../CSSer/front.css"> <!-- Link to external stylesheet -->
+    <script src="../Javascripter/Front.js"></script>
+    
 </head>
 <body>
 
@@ -14,14 +16,25 @@
         <li><a class="active" href="kontakt.html">Kontakt meg</a></li>
         <li><a href="Logg.html" class="meny">Dokumentasjon</a></li>
         <li><a href="prosjekter.html" class="meny">Prosjekter</a></li>
+        <li class="dropdown">
+            <a class="dropbtn meny">Meny</a>
+            <div class="dropdown-content">
+              <a href="#">Lenke 1</a>
+              <a href="#">Lenke 2</a>
+              <a href="#">Lenke 3</a>
+            </div>
+          </li>
     </ul>
 
     <script src="../javascripts/java.js"></script> <!-- External JavaScript file -->
 
     <h1>Kontakt meg</h1> <!-- Main heading for the contact page -->
-
+    <div class="grid-container">
+        <!-- Tekstseksjon -->
+        <div class="grid-item index_tekst">
     <p class="p1">Telefonnummer: +47 94243663</p> <!-- Contact phone number -->
     <p class="p1">Email: andreasbolstad@outlook.com</p> <!-- Contact email address -->
-
+        </div>
+    </div>
 </body>
 </html>

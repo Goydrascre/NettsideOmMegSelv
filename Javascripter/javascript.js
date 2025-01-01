@@ -47,7 +47,6 @@ function updatecps() {
     autocookiesDisplay.textContent = `per sekund ${autocookies}`;
     localStorage.setItem("autocookies", autocookies);
 }
-
 function updateMusPris() {
     upgrademus_pris = Math.floor(upgrademus_pris)
     upgrademusDisplay.textContent = `kjøp bedre mus for: ${upgrademus_pris}kr`;
@@ -190,7 +189,7 @@ document.addEventListener("click", (event) => {
     const reel3 = document.getElementById("reel-3");
     const result = document.getElementById("result");
     const spinButton = document.getElementById("spin_Button");
-    const symbols = ["🍒", "🍋", "🍊",":)",":(",":D"];
+    const symbols = ["🍒", "🍋", "🍊"];
     
     function getRandomSymbol() {
 
@@ -224,3 +223,18 @@ document.addEventListener("click", (event) => {
       }
     }
     });
+    const restart = document.getElementById("restart");
+    restart.addEventListener("click", ()=>{
+        score=0
+        upgrademus_pris=40
+        en_pris=15
+        autocookies=0
+        spinButtonPris=100
+        cookiePerClick=1
+        localStorage.setItem("cookiePerClick", cookiePerClick);
+        updateScore();
+        updateMusPris();
+        update1Pris();
+        updatecps();
+        updateSpinPris();
+    })

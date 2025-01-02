@@ -19,12 +19,30 @@ document.addEventListener('DOMContentLoaded', function () {
         e.stopPropagation();
     });
 });
-    const button = document.getElementById('filterButton');
-    const body = document.body;
+const button = document.getElementById('filterButton');
+const body = document.body;
 
-    button.addEventListener('click', () => {
-      body.classList.toggle('filtered'); // Legg til/fjern filter
-      button.textContent = body.classList.contains('filtered')
-        ? 'Deaktiver filter'
-        : 'Aktiver filter'; // Endre knappeteksten
-    });
+// Funksjon for å oppdatere filtertilstanden
+function updateFilterState(isFiltered) {
+  if (isFiltered) {
+    body.classList.add('filtered');
+    button.textContent = 'Deaktiver filter';
+  } else {
+    body.classList.remove('filtered');
+    button.textContent = 'Aktiver filter';
+  }
+  // Oppdater localStorage
+  localStorage.setItem('filterEnabled', isFiltered);
+}
+
+// Når siden lastes, sjekk `localStorage`
+document.addEventListener('DOMContentLoaded', () => {
+  const isFiltered = localStorage.getItem('filterEnabled') === 'true';
+  updateFilterState(isFiltered);
+});
+
+// Håndter klikk på knappen
+button.addEventListener('click', () => {
+  const isFiltered = body.classList.contains('filtered');
+  updateFilterState(!isFiltered); // Bytt tilstand
+});

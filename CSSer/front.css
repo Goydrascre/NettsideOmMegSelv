@@ -8,11 +8,11 @@ body::before {
   background-position: center;
   background-attachment: fixed;
   z-index: -1; /* Plasser bak innholdet */
-  transition: filter 2s ease-in-out, background-image 2s ease-in-out;
 }
 
 /* Legg filter på bakgrunnsbilde */
 body {
+  background-color: #464646;
   margin: 0;
   padding: 0;
   min-height: 100vh; /* Sørg for at body dekker hele visningsområdet */
@@ -22,12 +22,11 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  transition: filter 2s ease-in-out, background-image 2s ease-in-out;
 }
 
 /* Når filteret er aktivert */
 body.filtered {
-  filter: grayscale(100%);
+  filter: grayscale(100%) brightness(90%);
   background-image: url('../Bilder/filtered-image.png');
 }
 

@@ -6,7 +6,6 @@
     <title>Andreas sin nettside</title>
     <link rel="stylesheet" href="../CSSer/Media.css">
     <link rel="stylesheet" href="../CSSer/front.css">
-    <script src="../Javascripter/Front.js"></script>
 </head>
 <body>
     <ul><!--meny-->
@@ -15,7 +14,13 @@
         <li><a href="../indexHtmler/kontakt.html"class="meny">Kontakt meg</a></li>
         <li><a href="../indexHtmler/Logg.html" class="meny">Dokumentasjon</a></li>
         <li><a href="../indexHtmler/prosjekter.html" class="meny">Prosjekter</a></li>
-    </ul>
+        <li class="dropdown">
+            <a class="dropbtn meny">Meny</a>
+            <div class="dropdown-content">
+              <button id="filterButton">Gråtone</button>
+            </div>
+          </li>
+        </ul>
     <Header>
     <h2>Se min kjempe skummle video... om du tør</h2>
 </Header>
@@ -33,7 +38,7 @@
         </div> <!-- Slutt på div.videoen -->
 
     </div> <!-- Slutt på div.grid-container -->
-    
+    <script src="../Javascripter/Front.js"></script>
 </body>
 </html>
 

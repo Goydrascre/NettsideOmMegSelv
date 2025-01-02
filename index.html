@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Andreas sin nettside</title>
     <link rel="stylesheet" href="CSSer/front.css"> <!-- Link til hoved-CSS -->
-    <script src="../Javascripter/Front.js"></script>
 </head>
 <body>
     <!-- Navigasjonsmeny -->
@@ -14,15 +13,13 @@
         <li><a href="indexHtmler/kontakt.html" class="meny">Kontakt meg</a></li>
         <li><a href="indexHtmler/Logg.html" class="meny">Dokumentasjon</a></li>
         <li><a href="indexHtmler/prosjekter.html" class="meny">Prosjekter</a></li>
-            <li class="dropdown">
-                <a class="dropbtn meny">Meny</a>
-                <div class="dropdown-content">
-                <a href="#">Lenke 1</a>
-                <a href="#">Lenke 2</a>
-                <a href="#">Lenke 3</a>
-                </div>
-            </li>   
-    </ul>
+        <li class="dropdown">
+            <a class="dropbtn meny">Meny</a>
+            <div class="dropdown-content">
+              <button id="filterButton">Gråtone</button>
+            </div>
+          </li>
+        </ul>
 
     <!-- JavaScript inkludert -->
     <script src="../javascripts/java.js"></script>
@@ -51,5 +48,6 @@
     <tdf><p class="p1"><a href="indexHtmler/prosjekter.html">Her</a> er alle prosjektene jeg har gjort fra skoleoppgaver til ting jeg har lagd på fritiden</p></td>
 </tr>
 </div>
+<script src="Javascripter/Front.js"></script>
 </body>
 </html>

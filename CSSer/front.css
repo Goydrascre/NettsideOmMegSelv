@@ -1,11 +1,41 @@
-body {
-background-image: url(../Bilder/frontpage.png);
-background-size: cover;
-background-color: #be0808;
-margin: 0;
-padding: 0;
+body::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../Bilder/frontpage.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -1; /* Plasser bak innholdet */
+  transition: filter 2s ease-in-out, background-image 2s ease-in-out;
 }
 
+/* Legg filter på bakgrunnsbilde */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Sørg for at body dekker hele visningsområdet */
+  width: 100%;
+  position: relative; /* Forhindrer at andre elementer påvirker kroppens størrelse */
+  background-image: url('../Bilder/frontpage.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  transition: filter 2s ease-in-out, background-image 2s ease-in-out;
+}
+
+/* Når filteret er aktivert */
+body.filtered {
+  filter: grayscale(100%);
+  background-image: url('../Bilder/filtered-image.png');
+}
+
+/* Når filteret ikke er aktivert */
+body {
+  filter: grayscale(0%);
+  background-image: url('../Bilder/frontpage.png');
+}
 ul {
   list-style-type: none;
   margin: 0;

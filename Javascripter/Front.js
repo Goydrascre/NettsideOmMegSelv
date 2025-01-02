@@ -19,3 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
         e.stopPropagation();
     });
 });
+    const button = document.getElementById('filterButton');
+    const body = document.body;
+
+    button.addEventListener('click', () => {
+      body.classList.toggle('filtered'); // Legg til/fjern filter
+      button.textContent = body.classList.contains('filtered')
+        ? 'Deaktiver filter'
+        : 'Aktiver filter'; // Endre knappeteksten
+    });

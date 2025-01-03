@@ -189,7 +189,7 @@ document.addEventListener("click", (event) => {
     const reel3 = document.getElementById("reel-3");
     const result = document.getElementById("result");
     const spinButton = document.getElementById("spin_Button");
-    const symbols = ["🍒", "🍋", "🍊"];
+    const symbols = ["🍒", "🍋", "🍊","🍎","🍐"];
     
     function getRandomSymbol() {
 

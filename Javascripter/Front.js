@@ -39,6 +39,10 @@ function updateFilterState(isFiltered) {
 document.addEventListener('DOMContentLoaded', () => {
   const isFiltered = localStorage.getItem('filterEnabled') === 'true';
   updateFilterState(isFiltered);
+  body.classList.add('ready'); // Signaler at siden er klar
+  if (isFiltered) {
+    body.classList.add('filtered');
+  }
 });
 
 // Håndter klikk på knappen

@@ -3,7 +3,7 @@ body::before {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url('../Bilder/frontpage.png');
+  background-image: url('../Bilder/frontpage.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -12,29 +12,25 @@ body::before {
 
 /* Legg filter på bakgrunnsbilde */
 body {
-  background-color: #464646;
+  background-color: rgb(97, 97, 97);
   margin: 0;
   padding: 0;
   min-height: 100vh; /* Sørg for at body dekker hele visningsområdet */
   width: 100%;
   position: relative; /* Forhindrer at andre elementer påvirker kroppens størrelse */
-  background-image: url('../Bilder/frontpage.png');
+  background-image: url('../Bilder/frontpage.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  filter: grayscale(0%);
 }
 
 /* Når filteret er aktivert */
 body.filtered {
   filter: grayscale(100%) brightness(90%);
-  background-image: url('../Bilder/filtered-image.png');
 }
 
 /* Når filteret ikke er aktivert */
-body {
-  filter: grayscale(0%);
-  background-image: url('../Bilder/frontpage.png');
-}
 ul {
   list-style-type: none;
   margin: 0;
@@ -201,3 +197,11 @@ li.dropdown {
 .dropdown-content a:hover {
   background-color: #f1f1f1;
 }
+body {
+  opacity: 0; /* Skjul siden til den er klar */
+}
+
+body.ready {
+  opacity: 1; /* Vis siden når den er klar */
+}
+

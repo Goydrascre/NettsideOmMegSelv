@@ -199,9 +199,9 @@ document.addEventListener("click", (event) => {
         if (score>spinButtonPris) {   
             
       // Snurr hjulene
-      reel1.textContent = getRandomSymbol();
-      reel2.textContent = getRandomSymbol();
-      reel3.textContent = getRandomSymbol();
+      reel1.innerHTML = `<p class="p1">${getRandomSymbol()}</p>`;
+      reel2.innerHTML = `<p class="p1">${getRandomSymbol()}</p>`;
+      reel3.innerHTML = `<p class="p1">${getRandomSymbol()}</p>`;
     
       // Sjekk resultat
       if (reel1.textContent === reel2.textContent && reel2.textContent === reel3.textContent) {

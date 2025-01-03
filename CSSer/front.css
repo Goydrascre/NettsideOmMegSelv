@@ -76,6 +76,7 @@ li a:hover:not(.active) {
   text-align: center;
   padding: 5px;
   font-size: 30px;
+  align-items: center;
 }
 
 .index_tekst {
@@ -132,9 +133,19 @@ li a:hover:not(.active) {
   border-color: #9a2e2e;
   cursor: pointer;
 }
-.button1:hover {
-  background-color: #236577;
-  color: white;
+.buttonfilter {
+  background-color: #9a2e2e;
+  text-align: center;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition-duration: 0.4s;
+  border-color: #9a2e2e;
+  cursor: pointer;
+}
+.buttonfilter:hover{
+  background-color: #5f7e83;
 }
 h1{
   font-size: clamp(32px, 10vw, 50px);
@@ -149,8 +160,15 @@ h2{
 .src2 {
   width: clamp(50px, 50vw, 400px);
 }
+.src3 {
+  width: clamp(100px, 30vw, 400px);
+}
 .p1{
   font-size: clamp(16px, 3vw, 30px);
+  margin-bottom: 20px; /* Juster mellomrommet her */
+}
+.p2{
+  font-size: clamp(14px, 2vw, 25px);
   margin-bottom: 20px; /* Juster mellomrommet her */
 }
 .prosjekter_tittel{
@@ -158,6 +176,9 @@ h2{
 }
 .meny{
   font-size: clamp(12px, 3vw, 18px);
+}
+.meny_emoji{
+  font-size: clamp(11px, 3vw, 16px);
 }
 table {
   width: 100%;
@@ -180,22 +201,14 @@ li.dropdown {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
   text-decoration: none;
   display: block;
   text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
 }
 body {
   opacity: 0; /* Skjul siden til den er klar */

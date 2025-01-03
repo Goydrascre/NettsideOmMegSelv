@@ -26,10 +26,10 @@ const body = document.body;
 function updateFilterState(isFiltered) {
   if (isFiltered) {
     body.classList.add('filtered');
-    button.textContent = 'Deaktiver filter';
+    button.textContent = 'Deaktiver gråtone';
   } else {
     body.classList.remove('filtered');
-    button.textContent = 'Aktiver filter';
+    button.textContent = 'Aktiver gråtone';
   }
   // Oppdater localStorage
   localStorage.setItem('filterEnabled', isFiltered);

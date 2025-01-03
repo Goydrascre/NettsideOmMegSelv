@@ -4,18 +4,11 @@
     grid-row: 1;
     background-color: #e1cea0;
   }
-  .mid{
-    grid-column: 2 / span 1;
-    grid-row: 1;
-    background-color: #e1cea0;
-  }
   .hoyre{
     grid-column: 3 / span 1;
     grid-row: 1;
     background-color: #e1cea0;
   }
-
-
 body {
     background-color: #f5f5dc;
     color: #333;
@@ -100,7 +93,7 @@ button:hover {
     #cookie{
         position: relative;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        width: 300px;
+
         cursor: pointer;
         transform: translate(0, 0);
     }
@@ -143,8 +136,8 @@ button:hover {
       
       .reel {
         font-size: 3rem;
-        width: 80px;
-        height: 80px;
+        width: auto;
+        height: auto;
         border: 2px solid #000;
         border-radius: 10px;
         margin: 0 10px;

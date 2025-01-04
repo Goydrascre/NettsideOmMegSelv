@@ -70,12 +70,11 @@ cookie.addEventListener("click", (event) => {
     createNewElement(event); // Create the floating number animation
     cookie.classList.add('groot-swag-click');
 
-    // Fjerner klassen etter 1 sekund
+    // Fjerner klassen etter 0.5 sekund
     setTimeout(() => {
         cookie.classList.remove('groot-swag-click');
-    }, 490);
+    }, 500);
 });
-
 // Event listener for upgrading the mouse
 upgrademus.addEventListener("click", () => {
     if (score >= upgrademus_pris) {
@@ -120,7 +119,7 @@ setInterval(() => {
         }
 }, 1000); 
 
-// Function to create a new floating element
+// Funksjon som lager tall som flyr
 function createNewElement(event) {
     var newElement = document.createElement("div");
     newElement.textContent = `+${cookiePerClick}`;
@@ -151,7 +150,6 @@ function goldencookie() {
 
     // legger til css stilen//
     goldenCookie.classList.add('golden-cookie');
-
     goldenCookie.style.top = Math.random() * 100 + '%';
     goldenCookie.style.left = Math.random() * 100 + '%';
     // Legg til elementet i body
@@ -192,11 +190,10 @@ document.addEventListener("click", (event) => {
     const symbols = ["🍒", "🍋", "🍊","🍎","🍐"];
     
     function getRandomSymbol() {
-
       return symbols[Math.floor(Math.random() * symbols.length)];
     }
     spinButton.addEventListener("click", () => {
-        if (score>spinButtonPris) {   
+        if (score>=spinButtonPris) {   
             
       // Snurr hjulene
       reel1.innerHTML = `<p class="p1">${getRandomSymbol()}</p>`;
@@ -205,7 +202,7 @@ document.addEventListener("click", (event) => {
     
       // Sjekk resultat
       if (reel1.textContent === reel2.textContent && reel2.textContent === reel3.textContent) {
-        result.textContent = "Gratulerer! Du vant!";
+        result.textContent = "Du vant!";
         result.style.color = "green";
         score += spinButtonPris*50
         spinButtonPris=spinButtonPris+(autocookies*60)+(cookiePerClick*60)+(score/60)

@@ -17,11 +17,7 @@ body {
   padding: 0;
   min-height: 100vh; /* Sørg for at body dekker hele visningsområdet */
   width: 100%;
-  position: relative; /* Forhindrer at andre elementer påvirker kroppens størrelse */
-  background-image: url('../Bilder/frontpage.webp');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  position: relative; 
   filter: grayscale(0%);
 }
 
@@ -218,11 +214,3 @@ li.dropdown {
   display: block;
   text-align: left;
 }
-body {
-  opacity: 0; /* Skjul siden til den er klar */
-}
-
-body.ready {
-  opacity: 1; /* Vis siden når den er klar */
-}
-

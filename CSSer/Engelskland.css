@@ -15,7 +15,7 @@ header p {
 }
 .grid-container {
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   flex-wrap: wrap;
   margin: 40px 0;
   gap: 10px;

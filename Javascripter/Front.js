@@ -3,9 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropbtn = dropdown.querySelector('.dropbtn');
     const dropdownContent = dropdown.querySelector('.dropdown-content');
 
-    if (!dropdown || !dropbtn || !dropdownContent) {
-    }
-
     dropbtn.addEventListener('click', function (e) {
       e.stopPropagation(); // For å unngå å trigge document-klikk
       dropdownContent.style.display ='block'
@@ -38,18 +35,14 @@ function updateFilterState(isFiltered) {
   localStorage.setItem('filterEnabled', isFiltered);
 }
 
-// Når siden lastes, sjekk `localStorage`
-document.addEventListener('DOMContentLoaded', () => {
-  const isFiltered = localStorage.getItem('filterEnabled') === 'true';
-  updateFilterState(isFiltered);
-  body.classList.add('ready'); // Signaler at siden er klar
-  if (isFiltered) {
-    body.classList.add('filtered');
-  }
-});
-
 // Håndter klikk på knappen
 button.addEventListener('click', () => {
   const isFiltered = body.classList.contains('filtered');
   updateFilterState(!isFiltered); // Bytt tilstand
 });
+// local storage greier //
+const isFiltered = localStorage.getItem('filterEnabled') === 'true';
+updateFilterState(isFiltered);
+if (isFiltered) {
+  body.classList.add('filtered');
+}

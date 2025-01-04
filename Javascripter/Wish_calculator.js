@@ -17,9 +17,6 @@ function addToTable() {
     // Fyll inn verdier uten desimaler
     cell1.textContent = Math.floor(result); // Opprinnelig tall
     cell2.textContent = Math.floor(result / 90); // Rundet ned resultat
-
-    // Logg resultatet
-    console.log("Resultat:", result);
 }
 
 function clearTable() {

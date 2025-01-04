@@ -8,37 +8,41 @@
     <link rel="stylesheet" href="../CSSer/front.css">
 </head>
 <body>
-    <ul><!--meny-->
+    <ul> <!-- Meny -->
         <li><a href="../index.html" class="meny">Hjem</a></li>
         <li><a href="../indexHtmler/Om.html" class="meny">Om meg</a></li>
-        <li><a href="../indexHtmler/kontakt.html"class="meny">Kontakt meg</a></li>
+        <li><a href="../indexHtmler/kontakt.html" class="meny">Kontakt meg</a></li>
         <li><a href="../indexHtmler/Logg.html" class="meny">Dokumentasjon</a></li>
         <li><a href="../indexHtmler/prosjekter.html" class="meny">Prosjekter</a></li>
-        <li class="dropdown">
+        <li class="dropdown" aria-haspopup="true" aria-expanded="false">
             <a class="dropbtn meny_emoji">⚙️</a>
             <div class="dropdown-content">
               <button id="filterButton" class="buttonfilter">Gråtone</button>
             </div>
-          </li>
-        </ul>
-    <Header>
-    <h2>Se min kjempe skummle video... om du tør</h2>
-</Header>
-        <!-- Seksjon for videoen og overskriften -->
-        <div class="grid-container">
+        </li>
+    </ul>
+
+    <header>
+        <h2>Se min kjempe skummle video... om du tør</h2>
+    </header>
+
+    <!-- Seksjon for videoen og overskriften -->
+    <div class="grid-container">
         <div class="videoen">  
-            
             <!-- YouTube video-iframe -->
             <iframe 
                 class="video" 
                 src="https://www.youtube.com/embed/7dOPvhmgC2I" 
                 frameborder="0" 
-                allowfullscreen>
+                allowfullscreen 
+                title="Skummel video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
             </iframe>
         </div> <!-- Slutt på div.videoen -->
-
     </div> <!-- Slutt på div.grid-container -->
+
     <script src="../Javascripter/Front.js"></script>
 </body>
 </html>
+
 

@@ -69,13 +69,13 @@ li a:hover:not(.active) {
   gap: 10px;
   background-color: #b82929;
   padding: 10px;
+  position: relative;
 }
 
 .grid-item {
   background-color: rgba(204, 117, 117, 0.8);
   text-align: center;
   padding: 5px;
-  font-size: 30px;
   align-items: center;
 }
 
@@ -186,15 +186,15 @@ h2{
   font-size: clamp(12px, 3vw, 18px);
 }
 .meny_emoji{
-  font-size: clamp(11px, 3vw, 16px);
+  font-size: clamp(10px, 3vw, 16px);
 }
 table {
-  width: 100%;
   border-collapse: collapse;
 }
 
 th, td {
   border: 3px solid #7f1010;
+  width: 3000px;
   padding: 8px;
   background-color: rgba(214, 142, 142, 0.8);
   text-align: left;

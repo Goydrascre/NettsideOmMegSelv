@@ -9,16 +9,19 @@ document.addEventListener('DOMContentLoaded', function () {
     dropbtn.addEventListener('click', function (e) {
       e.stopPropagation(); // For å unngå å trigge document-klikk
       dropdownContent.style.display ='block'
+      dropbtn.classList.toggle("active");
     });
 
     // Klikk utenfor dropdown for å lukke den
     document.addEventListener('click', function () {
       dropdownContent.style.display = 'none';
+      dropbtn.classList.remove("active");
     });
     dropdownContent.addEventListener('click', function (e) {
         e.stopPropagation();
     });
 });
+
 const button = document.getElementById('filterButton');
 const body = document.body;
 

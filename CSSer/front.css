@@ -137,6 +137,7 @@ li a:hover:not(.active) {
   background-color: #9a2e2e;
   text-align: center;
   padding: 4px 8px;
+  border: 3px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -145,6 +146,13 @@ li a:hover:not(.active) {
   cursor: pointer;
 }
 .buttonfilter:hover{
+  background-color: #5f7e83;
+}
+.buttonfilter::placeholder {
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.button1:hover{
   background-color: #5f7e83;
 }
 h1{

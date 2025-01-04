@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="no">
+<head> 
+    <meta charset="utf-8">
+    <title>Andreas sin nettside</title> <!-- Page title -->
+    <link rel="stylesheet" href="../CSSer/front.css"> <!-- Link to external CSS -->
+</head>
+<body>
+  <ul><!--meny-->
+    <li><a href="../index.html" class="meny">Hjem</a></li>
+    <li><a href="../indexHtmler/Om.html" class="meny">Om meg</a></li>
+    <li><a href="../indexHtmler/kontakt.html"class="meny">Kontakt meg</a></li>
+    <li><a href="../indexHtmler/Logg.html" class="meny">Dokumentasjon</a></li>
+    <li><a href="../indexHtmler/prosjekter.html" class="meny">Prosjekter</a></li>
+    <li class="dropdown">
+        <a class="dropbtn meny_emoji">⚙️</a>
+        <div class="dropdown-content">
+          <button id="filterButton" class="buttonfilter">Gråtone</button>
+        </div>
+      </li>
+    </ul>
+    <h1>Wish Kalkulator</h1>
+    <input class="buttonfilter" type="number" id="inputPrimos" placeholder="Skriv antall primogems">
+    <input class="buttonfilter" type="number" id="inputStarglitter" placeholder="Skriv antall starglitter">
+    <input class="buttonfilter" type="number" id="inputFates" placeholder="Skriv antall fates">
+    <button onclick="addToTable()"class="buttonfilter">Beregn og legg til i tabellen </button>
+    <button onclick="clearTable()"class="buttonfilter">Slett alle rader</button>
+    <table>
+      <thead>
+        <tr>
+          <th>antall Wishes</th>
+          <th>garantert 5-stjerners karakter</th>
+        </tr>
+      </thead>
+      <tbody id="resultTable">
+      </tbody>
+    </table>
+
+    <!-- Resultat -->
+    <div id="antallpulls"></div>
+    <div id="resultat"></div>
+    <script src="../Javascripter/Front.js"></script>
+    <script src="../Javascripter/Wish_calculator.js"></script>
+</body>
+</html>

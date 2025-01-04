@@ -152,7 +152,7 @@ li a:hover:not(.active) {
   background-color: #5f7e83;
 }
 h1{
-  font-size: clamp(32px, 10vw, 50px);
+  font-size: clamp(32px, 6vw, 50px);
 }
 h2{
   font-size: clamp(15px, 5vw, 30px);
@@ -169,11 +169,10 @@ h2{
 }
 .p1{
   font-size: clamp(16px, 3vw, 30px);
-  margin-bottom: 20px; /* Juster mellomrommet her */
 }
 .p2{
   font-size: clamp(14px, 2vw, 25px);
-  margin-bottom: 20px; /* Juster mellomrommet her */
+  margin-bottom: 20px;
 }
 .prosjekter_tittel{
   font-size: clamp(10px, 2vw, 20px);

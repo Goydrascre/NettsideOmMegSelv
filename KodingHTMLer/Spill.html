@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../CSSer/front.css">
 </head>
 <body>
-    <ul><!--meny-->
+    <ul>
         <li><a href="../index.html" class="meny">Hjem</a></li>
         <li><a href="../indexHtmler/Om.html" class="meny">Om meg</a></li>
         <li><a href="../indexHtmler/kontakt.html" class="meny">Kontakt meg</a></li>
@@ -17,41 +17,42 @@
         <li class="dropdown">
             <a class="dropbtn meny_emoji">⚙️</a>
             <div class="dropdown-content">
-              <button id="filterButton" class="buttonfilter">Gråtone</button>
+                <button id="filterButton" class="buttonfilter">Gråtone</button>
             </div>
-          </li>
-        </ul>
+        </li>
+    </ul>
     <div class="grid-container">
         <div class="grid-item venstre">
             <div class="slot-machine">
-                <div id="reel-1" class="reel"><p class="p1">🍒</p></div>
-                <div id="reel-2" class="reel"><p class="p1">🍊</p></div>
-                <div id="reel-3" class="reel"><p class="p1">🍋</p></div>
-              </div>
-              <button id="spin_Button" class="p2">Snurr for: 0kr</button>
-              <p id="result" class="p1"></p>
-              <button id="restart" class="p2">Slett progression</button>
+                <div id="reel-1" class="reel p1"><p>🍒</p></div>
+                <div id="reel-2" class="reel p1"><p>🍊</p></div>
+                <div id="reel-3" class="reel p1"><p>🍋</p></div>
+            </div>
+            <button id="spin_Button" class="p2">Snurr for: 100kr</button>
+            <p id="result" class="p1"></p>
+            <button id="restart" class="p2">Slett progresjon</button>
         </div>
         <div class="grid-item">
             <h1>Andreas Trykker</h1>
-    <div id="timer"></div>
-    <div id="container">
-        <div id="score" class="p2">0</div>
-        <div id="autocookies" class="p2">per sekund 0</div>
-        <img id="cookie" class="src3" src="../Bilder/Andreas_bilde.webp" alt="Cookie">
-    </div>
-    </div>
+            <div id="timer"></div>
+            <div id="container">
+                <div id="score" class="p2">0kr</div>
+                <div id="autoScore" class="p2">per sekund: 0</div>
+                <img id="bilde" class="src3" src="../Bilder/Andreas_bilde.webp" alt="Trykk her">
+            </div>
+        </div>
         <div class="grid-item hoyre">
             <h1>Butikk</h1>
             <div id="upgrade1">
-               <button id="upgrademusDisplay">kjøp bedre mus for b</button> 
+                <button id="upgrademusDisplay">Kjøp bedre mus for: 40kr</button>
             </div>
             <div id="kjøp1">
-                <button id="upgrade1Display">kjøp bedre mus for b</button> 
+                <button id="upgrade1Display">Kjøp bedre autoScore for: 15kr</button>
             </div>
         </div>
     </div>
-        <script src="../Javascripter/Front.js"></script>
-        <script src="../Javascripter/javascript.js"></script>
+    <script src="../Javascripter/Front.js"></script>
+    <script src="../Javascripter/javascript.js"></script>
 </body>
 </html>
+

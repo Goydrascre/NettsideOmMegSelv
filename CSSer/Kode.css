@@ -68,17 +68,17 @@ button:hover {
             top: -5px; /* Flytter elementet oppover */
         }
     }
-    .golden-cookie {
+    .gylden-mynt {
         width: 50px;
         height: 50px;
         background-color: gold;
         border-radius: 50%;
         position: absolute;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        animation: goldencookiespawn 10s ease-in-out;
+        animation: gylden-mynt 10s ease-in-out;
     }
 
-    @keyframes goldencookiespawn {
+    @keyframes gylden-mynt {
         0% {
             transform: translate(-50%, -50%) scale(0.5);
             opacity: 0;
@@ -92,18 +92,16 @@ button:hover {
             opacity: 0;
         }
     }
-    #cookie{
+    #bilde{
         position: relative;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-
         cursor: pointer;
         transform: translate(0, 0);
     }
-    .groot-swag-click {
-        animation: grootswagclick 0.5s;
-        position: absolute;
+    .bilde_hopp {
+        animation: bilde_hopp 0.5s;
     }
-    @keyframes grootswagclick {
+    @keyframes bilde_hopp {
         0% {
             transform:  scale(0.95);
         }

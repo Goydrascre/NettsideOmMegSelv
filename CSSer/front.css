@@ -118,9 +118,10 @@ li a:hover:not(.active) {
 }
 
 .button1 {
+  color: black;
   text-align: center;
   background-color: #7eb9c7;
-  padding: 4px 8px;
+  padding: 12px 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -128,6 +129,10 @@ li a:hover:not(.active) {
   border-radius: 10px;
   border-color: #9a2e2e;
   cursor: pointer;
+}
+.button1:hover{
+  background-color: #467b7f;
+  color: white;
 }
 .buttonfilter {
   background-color: #9a2e2e;
@@ -147,9 +152,6 @@ li a:hover:not(.active) {
 .buttonfilter::placeholder {
   color: rgb(0, 0, 0);
   text-align: center;
-}
-.button1:hover{
-  background-color: #5f7e83;
 }
 h1{
   font-size: clamp(32px, 6vw, 50px);

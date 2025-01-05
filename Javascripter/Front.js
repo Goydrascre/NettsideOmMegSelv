@@ -23,10 +23,10 @@ const body = document.body;
 // Funksjon for å oppdatere filtertilstanden
 function updateFilterState(isFiltered) {
   if (isFiltered) {
-    body.classList.add('filtered');
+    body.classList.add('gråfiltered');
     gråfilterbutton.textContent = 'Deaktiver gråtone';
   } else {
-    body.classList.remove('filtered');
+    body.classList.remove('gråfiltered');
     gråfilterbutton.textContent = 'Aktiver gråtone';
   }
   // Oppdater localStorage

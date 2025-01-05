@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <meta charset="UTF-8"> <!-- Tegnsett for korrekt visning av tekst -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Gjør siden responsiv -->
-    <title>Andreas Trykker</title> <!-- Sidens navn som vises i nettleseren -->
-    <link rel="stylesheet" href="../CSSer/Kode.css"> <!-- Spesifikk CSS -->
-    <link rel="stylesheet" href="../CSSer/front.css"> <!-- Generell CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andreas Trykker</title>
+    <link rel="stylesheet" href="../CSSer/Kode.css">
+    <link rel="stylesheet" href="../CSSer/front.css">
 </head>
 <body>
-    <!-- Navigasjonsmeny -->
     <ul>
         <li><a href="../index.html" class="meny">Hjem</a></li>
         <li><a href="../indexHtmler/Om.html" class="meny">Om meg</a></li>
@@ -16,53 +15,44 @@
         <li><a href="../indexHtmler/Logg.html" class="meny">Dokumentasjon</a></li>
         <li><a href="../indexHtmler/prosjekter.html" class="meny">Prosjekter</a></li>
         <li class="dropdown">
-            <a class="dropbtn meny_emoji">⚙️</a> <!-- Meny med innstillinger -->
+            <a class="dropbtn meny_emoji">⚙️</a>
             <div class="dropdown-content">
-                <button id="gråfilterButton" class="buttonfilter">Gråtone</button> <!-- Knapp for gråfilter -->
+                <button id="gråfilterButton" class="buttonfilter">Gråtone</button>
             </div>
         </li>
     </ul>
-
-    <!-- Hovedoppsettet med grid -->
     <div class="grid-container">
-        <!-- Venstre del: spilleautomat -->
         <div class="grid-item venstre">
             <div class="slot-machine">
-                <div id="reel-1" class="reel"><p>🍒</p></div> <!-- Første hjul -->
-                <div id="reel-2" class="reel"><p>🍊</p></div> <!-- Andre hjul -->
-                <div id="reel-3" class="reel"><p>🍋</p></div> <!-- Tredje hjul -->
+                <div id="reel-1" class="reel "><p>🍒</p></div>
+                <div id="reel-2" class="reel "><p>🍊</p></div>
+                <div id="reel-3" class="reel "><p>🍋</p></div>
             </div>
-            <button id="spin_Button" class="p2">Snurr for: 100kr</button> <!-- Startknapp -->
-            <p id="result" class="p1"></p> <!-- Viser resultatet av spinn -->
-            <button id="restart" class="p2">Slett progresjon</button> <!-- Nullstiller spillet -->
+            <button id="spin_Button" class="p2">Snurr for: 100kr</button>
+            <p id="result" class="p1"></p>
+            <button id="restart" class="p2">Slett progresjon</button>
         </div>
-
-        <!-- Midtdel: klikkspill -->
         <div class="grid-item">
-            <h1>Andreas Trykker</h1> <!-- Hovedtittel -->
-            <div id="timer"></div> <!-- Automatisk klikk-timer -->
+            <h1>Andreas Trykker</h1>
+            <div id="timer"></div>
             <div id="container">
-                <div id="score" class="p2">0kr</div> <!-- Viser poengsum -->
-                <div id="autoScore" class="p2">per sekund: 0</div> <!-- Viser poeng per sekund -->
-                <img id="bilde" class="src3" src="../Bilder/Andreas_bilde.webp" alt="Trykk her"> <!-- Klikkbart bilde -->
+                <div id="score" class="p2">0kr</div>
+                <div id="autoScore" class="p2">per sekund: 0</div>
+                <img id="bilde" class="src3" src="../Bilder/Andreas_bilde.webp" alt="Trykk her">
             </div>
         </div>
-
-        <!-- Høyre del: butikk -->
         <div class="grid-item hoyre">
-            <h1>Butikk</h1> <!-- Butikkens overskrift -->
+            <h1>Butikk</h1>
             <div id="upgrade1">
-                <button id="upgrademusDisplay">Kjøp bedre mus for: 40kr</button> <!-- Oppgradering av mus -->
+                <button id="upgrademusDisplay">Kjøp bedre mus for: 40kr</button>
             </div>
             <div id="kjøp1">
-                <button id="upgrade1Display">Kjøp bedre autoScore for: 15kr</button> <!-- Oppgradering av autoScore -->
+                <button id="upgrade1Display">Kjøp bedre autoScore for: 15kr</button>
             </div>
         </div>
     </div>
-
-    <!-- Skript for interaktivitet -->
     <script src="../Javascripter/Front.js"></script>
-    <script src="../Javascripter/javascript.js"></script>
+    <script src="../Javascripter/Andreas_Trykker.js"></script>
 </body>
 </html>
 

@@ -19,17 +19,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-const button = document.getElementById('filterButton');
+const gråbutton = document.getElementById('gråfilterButton');
 const body = document.body;
 
 // Funksjon for å oppdatere filtertilstanden
 function updateFilterState(isFiltered) {
   if (isFiltered) {
     body.classList.add('filtered');
-    button.textContent = 'Deaktiver gråtone';
+    gråbutton.textContent = 'Deaktiver gråtone';
   } else {
     body.classList.remove('filtered');
-    button.textContent = 'Aktiver gråtone';
+    gråbutton.textContent = 'Aktiver gråtone';
   }
   // Oppdater localStorage
   localStorage.setItem('filterEnabled', isFiltered);

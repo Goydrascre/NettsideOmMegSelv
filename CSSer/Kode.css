@@ -135,9 +135,9 @@ button:hover {
       }
       
       .reel {
-        font-size: 3rem;
+        font-size: clamp(16px, 3vw, 30px);
         width: auto;
-        height: auto;
+        height: 50px;
         border: 2px solid #000;
         border-radius: 10px;
         margin: 0 5px;

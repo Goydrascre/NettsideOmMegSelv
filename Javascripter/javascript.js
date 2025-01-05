@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSpinPris(); // Oppdater pris for snurr-knappen
 
     // Tilbakestill Frenzy hvis aktivert ved forrige lasting
-    if (isFrenzyActive === true) {
+    if (isFrenzyActive) {
         isFrenzyActive = false;
         localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
-        autoScore /= 7;
-        ScorePerClick /= 7;
+        autoScore /= 7; // Reduser autoScore etter Frenzy
+        ScorePerClick /= 7; // Reduser ScorePerClick etter Frenzy
         updatecps();
     }
 });
@@ -40,44 +40,44 @@ document.addEventListener("DOMContentLoaded", () => {
 // Funksjon for å oppdatere poengvisningen
 function updateScore() {
     score = Math.floor(score); // Runder av poengsummen nedover
-    scoreDisplay.textContent = `${score} kr`;
+    scoreDisplay.textContent = `${score} kr`; // Viser poeng i HTML
     localStorage.setItem("score", score); // Lagre poengsummen i localStorage
 }
 
 // Funksjon for å oppdatere autoScore per sekund
 function updatecps() {
     autoScore = Math.floor(autoScore);
-    autoScoreDisplay.textContent = `per sekund: ${autoScore}`;
-    localStorage.setItem("autoScore", autoScore);
+    autoScoreDisplay.textContent = `per sekund: ${autoScore}`; // Oppdater HTML-visning
+    localStorage.setItem("autoScore", autoScore); // Lagre autoScore
 }
 
 // Funksjon for å oppdatere prisen på musoppgradering
 function updateMusPris() {
     upgrademus_pris = Math.floor(upgrademus_pris);
-    upgrademusDisplay.textContent = `Kjøp bedre mus for: ${upgrademus_pris} kr`;
-    localStorage.setItem("upgrademus_pris", upgrademus_pris);
+    upgrademusDisplay.textContent = `Kjøp bedre mus for: ${upgrademus_pris} kr`; // Oppdater HTML-visning
+    localStorage.setItem("upgrademus_pris", upgrademus_pris); // Lagre pris i localStorage
 }
 
 // Funksjon for å oppdatere prisen på autoScore-oppgradering
 function update1Pris() {
     en_pris = Math.floor(en_pris);
-    upgrade1Display.textContent = `Kjøp bedre autoScore for: ${en_pris} kr`;
-    localStorage.setItem("1_pris", en_pris);
+    upgrade1Display.textContent = `Kjøp bedre autoScore for: ${en_pris} kr`; // Oppdater HTML-visning
+    localStorage.setItem("1_pris", en_pris); // Lagre pris i localStorage
 }
 
 // Funksjon for å oppdatere prisen på snurr-knappen
 function updateSpinPris() {
     spinButtonPris = Math.floor(spinButtonPris);
-    spinprisDisplay.textContent = `Snurr for: ${spinButtonPris} kr`;
-    localStorage.setItem("spin_Button", spinButtonPris);
+    spinprisDisplay.textContent = `Snurr for: ${spinButtonPris} kr`; // Oppdater HTML-visning
+    localStorage.setItem("spin_Button", spinButtonPris); // Lagre pris i localStorage
 }
 
 // Trykking på bildet for å få poeng
 bilde.addEventListener("click", (event) => {
-    score += ScorePerClick;
-    updateScore();
-    createNewElement(event); // Lag animerte flytende tall
-    bilde.classList.add('bilde_hopp');
+    score += ScorePerClick; // Legg til poeng per klikk
+    updateScore(); // Oppdater poengvisning
+    createNewElement(event); // Lag animasjon for flytende tall
+    bilde.classList.add('bilde_hopp'); // Legg til animasjonsklasse
 
     // Fjern animasjonsklassen etter 0,5 sekunder
     setTimeout(() => {
@@ -85,101 +85,40 @@ bilde.addEventListener("click", (event) => {
     }, 500);
 });
 
-// Event listener for oppgradering av mus
-upgrademus.addEventListener("click", () => {
-    if (score >= upgrademus_pris) {
-        score -= upgrademus_pris;
-        ScorePerClick += isFrenzyActive ? 7 : 1;
-        upgrademus_pris *= 1.5;
-        updateScore();
-        localStorage.setItem("ScorePerClick", ScorePerClick);
-        updateMusPris();
-    }
-});
-
-// Event listener for oppgradering av autoScore
-kjøp1.addEventListener("click", () => {
-    if (score >= en_pris) {
-        score -= en_pris;
-        en_pris *= 1.5;
-        autoScore += isFrenzyActive ? 7 : 1;
-        localStorage.setItem("1_pris", en_pris);
-        updatecps();
-        update1Pris();
-        updateScore();
-    }
-});
-
 // Automatisk poeng per sekund og reduksjon i snurr-knappens pris
 setInterval(() => {
-    score += autoScore;
-    updateScore();
+    score += autoScore; // Legg til poeng basert på autoScore
+    updateScore(); // Oppdater poengvisning
     if (spinButtonPris > 50) {
-        spinButtonPris *= 0.995;
+        spinButtonPris *= 0.995; // Reduser prisen gradvis
         updateSpinPris();
     }
 }, 1000);
 
-// Funksjon for å lage flytende tallanimasjon
-function createNewElement(event) {
-    const newElement = document.createElement("div");
-    newElement.textContent = `+${ScorePerClick}`;
-    newElement.classList.add("cpc");
-
-    const container = document.getElementById("container");
-    const rect = container.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
-
-    const randomOffset = Math.floor(Math.random() * 51) - 25;
-    const randomX = mouseX + randomOffset;
-
-    newElement.style.left = randomX + "px";
-    newElement.style.top = mouseY + "px";
-
-    container.appendChild(newElement);
-
-    setTimeout(() => {
-        newElement.remove();
-    }, 1950);
-}
-
-// Funksjon som lager en gylden mynt
-function lagMynt() {
-    const gyldenMynt = document.createElement('div');
-    gyldenMynt.classList.add('gylden-mynt');
-    gyldenMynt.style.top = Math.random() * 100 + '%';
-    gyldenMynt.style.left = Math.random() * 100 + '%';
-    document.body.appendChild(gyldenMynt);
-
-    setTimeout(() => {
-        gyldenMynt.remove();
-    }, 9950);
-}
+// Klikk på gylden mynt aktiverer Frenzy-modus
+document.addEventListener("click", (event) => {
+    if (event.target.classList.contains("gylden-mynt") && !isFrenzyActive) {
+        autoScore *= 7; // Øk autoScore midlertidig
+        ScorePerClick *= 7; // Øk ScorePerClick midlertidig
+        isFrenzyActive = true; // Sett Frenzy aktiv
+        localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
+        updatecps();
+        event.target.remove(); // Fjern mynten etter aktivering
+        timer.classList.add('timer-bar'); // Vis Frenzy-timer
+        setTimeout(() => {
+            isFrenzyActive = false; // Deaktiver Frenzy
+            autoScore /= 7; // Tilbakestill autoScore
+            ScorePerClick /= 7; // Tilbakestill ScorePerClick
+            updatecps();
+            timer.classList.remove('timer-bar'); // Fjern timer-baren
+        }, 10000); // Frenzy varer i 10 sekunder
+    }
+});
 
 // Opprett en gylden mynt hvert minutt
 setInterval(lagMynt, 60000);
 
-// Klikk på gylden mynt aktiverer Frenzy-modus
-document.addEventListener("click", (event) => {
-    if (event.target.classList.contains("gylden-mynt") && !isFrenzyActive) {
-        autoScore *= 7;
-        ScorePerClick *= 7;
-        isFrenzyActive = true;
-        localStorage.setItem("isFrenzyActive", JSON.stringify(isFrenzyActive));
-        updatecps();
-        event.target.remove();
-        timer.classList.add('timer-bar');
-        setTimeout(() => {
-            isFrenzyActive = false;
-            autoScore /= 7;
-            ScorePerClick /= 7;
-            updatecps();
-            timer.classList.remove('timer-bar');
-        }, 10000);
-    }
-});
-
+// slot maskin //
     const reel1 = document.getElementById("reel-1");
     const reel2 = document.getElementById("reel-2");
     const reel3 = document.getElementById("reel-3");
@@ -218,6 +157,7 @@ document.addEventListener("click", (event) => {
       }
     }
     });
+// start spillet på nytt //
     const restart = document.getElementById("restart");
     restart.addEventListener("click", ()=>{
         score=0

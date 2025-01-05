@@ -22,7 +22,7 @@ body {
 }
 
 /* Når filteret er aktivert */
-body.filtered {
+body.gråfiltered {
   filter: grayscale(100%) brightness(90%);
 }
 

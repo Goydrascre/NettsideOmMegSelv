@@ -180,6 +180,8 @@ document.addEventListener("click", (event) => {
     }
 });
 
+// gambling //
+
 const reel1 = document.getElementById("reel-1");
 const reel2 = document.getElementById("reel-2");
 const reel3 = document.getElementById("reel-3");
@@ -193,12 +195,12 @@ function getRandomSymbol() {
 
 spinButton.addEventListener("click", () => {
     if (score >= spinButtonPris) {   
-        // Snurr hjulene
+        // Snurr hjulene //
         reel1.innerHTML = `${getRandomSymbol()}`;
         reel2.innerHTML = `${getRandomSymbol()}`;
         reel3.innerHTML = `${getRandomSymbol()}`;
 
-        // Sjekk resultat
+        // Sjekk resultat //
         if (reel1.textContent === reel2.textContent && reel2.textContent === reel3.textContent) {
             result.textContent = "Du vant!";
             result.style.color = "green";
@@ -218,7 +220,7 @@ spinButton.addEventListener("click", () => {
         }
     }
 });
-
+// slett all progression //
 const restart = document.getElementById("restart");
 restart.addEventListener("click", () => {
     score = 0;

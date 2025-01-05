@@ -35,12 +35,12 @@ function updateFilterState(isFiltered) {
 
 // Håndter klikk på knappen
 gråfilterbutton.addEventListener('click', () => {
-  const isFiltered = body.classList.contains('filtered');
+  const isFiltered = body.classList.contains('gråfiltered');
   updateFilterState(!isFiltered); // Bytt tilstand
 });
 // local storage greier //
 const isFiltered = localStorage.getItem('filterEnabled') === 'true';
 updateFilterState(isFiltered);
 if (isFiltered) {
-  body.classList.add('filtered');
+  body.classList.add('gråfiltered');
 }

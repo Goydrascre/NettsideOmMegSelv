@@ -1,0 +1,30 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* To kolonner */
+    gap: 10px; /* Mellomrom mellom grid-elementer */
+}
+
+.Intro {
+    background-color: rgba(214, 142, 142, 0.8);
+    grid-column: 1 / span 1;
+    grid-row: 2;
+    padding: 50px;
+}
+.Hoved-Text {
+    background-color: rgba(214, 142, 142, 0.8);
+    grid-column: 1 / span 2;
+    grid-row: 3;
+    padding: 50px;
+}
+.quiz {
+    background-color: rgba(214, 142, 142, 0.8);
+    grid-column: 2 / span 1;
+    grid-row: 2;
+    padding: 50px;
+}
+.fabrikk {
+    background-color: rgba(214, 142, 142, 0.8);
+    grid-column: 3 / span 1;
+    grid-row: 2;
+    padding: 50px;
+}

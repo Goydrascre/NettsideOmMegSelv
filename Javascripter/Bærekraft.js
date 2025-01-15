@@ -110,4 +110,37 @@ const quizData = [
   
   // Start quiz
   showQuestion(currentQuestionIndex);
-  
+  function oppdaterStatistikk() {
+    // Genererer tilfeldige tall for hver statistikk
+
+    // Oppdaterer HTML-elementene med de nye verdiene
+    document.getElementById('brukere').textContent = brukere;
+    document.getElementById('besok').textContent = besok;
+    document.getElementById('omsetning').textContent = omsetning;
+  }
+  let søppel = 0
+  let besok = 0
+  let omsetning = 0
+
+  window.onload = function () {
+    console.log("Start");
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Trump', 'Green', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [brukere, besok, omsetning],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+};

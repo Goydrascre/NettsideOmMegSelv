@@ -20,11 +20,16 @@
     background-color: rgba(214, 142, 142, 0.8);
     grid-column: 2 / span 1;
     grid-row: 2;
-    padding: 50px;
+    padding: 20px;
 }
 .fabrikk {
     background-color: rgba(214, 142, 142, 0.8);
     grid-column: 3 / span 1;
     grid-row: 2 / span 4;
-    padding: 50px;
+    padding: 20px;
+}
+#myChart {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 10px;
 }

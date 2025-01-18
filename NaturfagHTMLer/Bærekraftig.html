@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andreas Trykker</title>
+    <title>Bærekraft side</title>
     <link rel="stylesheet" href="../CSSer/front.css">
     <link rel="stylesheet" href="../CSSer/Tverfagelig.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js -->
@@ -22,9 +22,10 @@
             </div>
         </li>
     </ul>
-    <h2>Hvor viktig er forbrenningsanlegg for miljøet. </h2>
+    
 
     <div class="grid-container">
+        <h2>Hvor viktig er forbrenningsanlegg for miljøet. </h2>
         <div class="Intro"><h2>Hva er et forbrenningsanlegg?</h2>Et forbrenningsanlegg er et anlegg som forbrenner restavfall, slik at den kan produsere energi, og samtidig bli kvitt avfall. Dette er svært normalt i Norge, men det er fortsatt veldig mange land som ikke bruker disse anleggene, og istedenfor kaster restavfallet sitt i store binger som ikke er særlig miljøvennlig. Derfor mener vi at flere land bør ta i bruk forbrenningsanlegg, slik at vi kan sikre en bærekraftig fremtid.</div>
         
         <div class="Hoved-Text">Forbrenningsanlegg, som de vi bruker i Norge, spiller en viktig rolle i bærekraftig avfallshåndtering. Ved å brenne restavfall som ikke kan gjenvinnes, reduseres mengden avfall som havner på søppelfyllinger. Dette bidrar til å minimere miljøskadelige utslipp som metangass, som oppstår ved nedbrytning av organisk materiale på fyllinger. Samtidig produserer forbrenningsanlegg energi i form av varme og strøm, som kan brukes til oppvarming av boliger og bedrifter.
@@ -36,17 +37,16 @@
         <button id="restart-btn">Start på nytt</button>
         <p id="result"></p></div>
 
-        <div class="fabrikk">  <h2>Statistikk</h2>
+        <div class="fabrikk">
+            <h2>Statistikk</h2>
             <div class="statistikk">
-              <p>Antall brukere: <span id="brukere">1</span></p>
-              <p>Antall besøk: <span id="besok">2</span></p>
-              <p>Omsetning: <span id="omsetning">5</span> NOK</p>
               <canvas id="myChart" width="400" height="400"></canvas>
-              <script src="../Javascripter/Chart.js"></script>
             </div>
-            <button onclick="oppdaterStatistikk()">Oppdater tall</button></div>
-    </div>
-    <script src="../Javascripter/Front.js"></script>
-    <script src="../Javascripter/Bærekraft.js"></script>
+            <button id="+1">legg til et forbrenningsanlegg</button>
+            <button id="-1">ta vekk et forbrenningsanlegg</button>
+          </div>
+          <script src="../Javascripter/Front.js"></script>
+          <script src="../Javascripter/Bærekraft.js"></script>
+          
 </body>
 </html>

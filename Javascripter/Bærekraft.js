@@ -107,40 +107,66 @@ const quizData = [
     result.textContent = "";
     showQuestion(currentQuestionIndex);
   });
-  
   // Start quiz
   showQuestion(currentQuestionIndex);
+
+  let avfall = 200000;
+  let C02 = avfall * 0.5; // 0.5 tonn CO2 per tonn avfall
+  let energi = avfall * 0.6; // 600 kWh per tonn avfall
+  
+  // Opprett en global variabel for diagrammet
+  let myChart;
+  
   function oppdaterStatistikk() {
-    // Genererer tilfeldige tall for hver statistikk
-
-    // Oppdaterer HTML-elementene med de nye verdiene
-    document.getElementById('brukere').textContent = brukere;
-    document.getElementById('besok').textContent = besok;
-    document.getElementById('omsetning').textContent = omsetning;
+      // Hvis diagrammet allerede finnes, oppdater dataene
+      if (myChart) {
+          myChart.data.datasets[0].data = [avfall, C02, energi]; // Nå med energi
+          myChart.update(); // Oppdater diagrammet
+      } else {
+          // Opprett diagrammet første gang
+          const ctx = document.getElementById('myChart').getContext('2d');
+          myChart = new Chart(ctx, {
+              type: 'bar',
+              data: {
+                  labels: ['Avfall brent (tonn)', 'CO2 utslipp (tonn)', 'Energi (MWh)'], // Vis energi i MWh
+                  datasets: [{
+                      label: '# Statistikk (2023)',
+                      data: [avfall, C02, energi], // Vis energi i MWh (deler på 1000)
+                      borderWidth: 1
+                  }]
+              },
+              options: {
+                  scales: {
+                      y: {
+                          beginAtZero: true
+                      }
+                  }
+              }
+          });
+      }
   }
-  let søppel = 0
-  let besok = 0
-  let omsetning = 0
-
-  window.onload = function () {
-    console.log("Start");
-    const ctx = document.getElementById('myChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Trump', 'Green', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [brukere, besok, omsetning],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-};
+  
+  // Oppdater diagrammet første gang
+  oppdaterStatistikk();
+  
+  let forbrenningsanlegg = 1;
+  
+  // Oppdater verdiene ved klikk
+  const Pbutton = document.getElementById('+1');
+  Pbutton.addEventListener('click', () => {
+      forbrenningsanlegg += 1; // Øk verdien
+      avfall += 200000;
+      C02 += 100000;
+      energi += 120000; // Øk energi med 120000 kWh (600 kWh per tonn avfall)
+      oppdaterStatistikk(); // Oppdater diagrammet med nye verdier
+  });
+  
+  const Mbutton = document.getElementById('-1');
+  Mbutton.addEventListener('click', () => {
+      forbrenningsanlegg -= 1; // Reduser verdien
+      avfall -= 200000;
+      C02 -= 100000;
+      energi -= 120000; // Reduser energi med 120000 kWh
+      oppdaterStatistikk(); // Oppdater diagrammet med nye verdier
+  });
+  

@@ -63,11 +63,9 @@ li a:hover:not(.active) {
   width: 90%;
   display: grid;
   gap: 10px;
-  background-color: #b82929;
   padding: 10px;
   position: relative;
 }
-
 .grid-item {
   background-color: rgba(204, 117, 117, 0.8);
   text-align: center;
@@ -78,43 +76,44 @@ li a:hover:not(.active) {
 .index_tekst {
   background-color: rgba(214, 142, 142, 0.8);
   grid-column: 1 / span 1;
-  grid-row: 1;
+  grid-row: 2;
   padding: 30px;
 }
 
 .Om_tekst{
   background-color: rgba(214, 142, 142, 0.8);
-  @media (max-width: 700px) {
     grid-column: 2 / span 1;
-    grid-row: 1/ span 2;
+    grid-row: 2/ span 2;
   }
-  grid-column: 2 / span 1;
-  grid-row: 1;
+
+.forste_bilde_Om{
+  grid-column: 1 / span 1;
+  grid-row: 2;
 }
 .andre_bilde_Om{
-  @media (max-width: 700px) {
-    grid-column: 1 / span 1;
-    grid-row: 2;
-  }
   grid-column: 3 / span 1;
-  grid-row: 1;
+  grid-row: 2;
 }
 
-.prosjekter1{/* for alle gridsene på prosjekt siden*/
+.prosjekter1{
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
 }
 .prosjekter2{
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
 }
 .prosjekter3{
-  @media (max-width: 700px) {
-    grid-column: 1 / span 1;
-    grid-row: 2;
-  }
   grid-column: 3;
-  grid-row: 1;
+  grid-row: 2;
+}
+.prosjekter4{
+  grid-column: 1;
+  grid-row: 3;
+}
+.prosjekter5{
+  grid-column: 2;
+  grid-row: 3;
 }
 
 .button1 {

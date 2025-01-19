@@ -23,6 +23,7 @@
     padding: 20px;
 }
 .fabrikk {
+    align-items: center;
     background-color: rgba(214, 142, 142, 0.8);
     grid-column: 3 / span 1;
     grid-row: 2 / span 4;

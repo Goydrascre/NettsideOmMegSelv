@@ -148,25 +148,3 @@ const quizData = [
   
   // Oppdater diagrammet første gang
   oppdaterStatistikk();
-  
-  let forbrenningsanlegg = 1;
-  
-  // Oppdater verdiene ved klikk
-  const Pbutton = document.getElementById('+1');
-  Pbutton.addEventListener('click', () => {
-      forbrenningsanlegg += 1; // Øk verdien
-      avfall += 200000;
-      C02 += 100000;
-      energi += 120000; // Øk energi med 120000 kWh (600 kWh per tonn avfall)
-      oppdaterStatistikk(); // Oppdater diagrammet med nye verdier
-  });
-  
-  const Mbutton = document.getElementById('-1');
-  Mbutton.addEventListener('click', () => {
-      forbrenningsanlegg -= 1; // Reduser verdien
-      avfall -= 200000;
-      C02 -= 100000;
-      energi -= 120000; // Reduser energi med 120000 kWh
-      oppdaterStatistikk(); // Oppdater diagrammet med nye verdier
-  });
-  

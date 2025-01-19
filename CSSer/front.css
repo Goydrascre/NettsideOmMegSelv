@@ -12,11 +12,11 @@ body::before {
 
 /* Legg filter på bakgrunnsbilde */
 body {
-  background-color: rgb(97, 97, 97);
   margin: 0;
   padding: 0;
   min-height: 100vh; /* Sørg for at body dekker hele visningsområdet */
   width: 100%;
+  background-attachment: fixed;
   position: relative; 
   filter: grayscale(0%);
 }

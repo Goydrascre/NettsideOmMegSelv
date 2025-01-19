@@ -1,20 +1,20 @@
 const quizData = [
-    {
-      question: "Hva er hovedstaden i Norge?",
-      options: ["Oslo", "Bergen", "Trondheim", "Stavanger"],
-      correct: 0,
-    },
-    {
-      question: "hva er ?",
-      options: ["1933435", "1wd939", "194dw5", "8019"],
-      correct: 1,
-    },
-    {
-      question: "er plast",
-      options: ["jepp", "nei", "jepp", "tja"],
-      correct: 2,
-    },
-  ];
+  {
+    question: "Hva er formålet med et forbrenningsanlegg?",
+    options: ["Å produsere plastmaterialer", "Å håndtere avfall og produsere energi", "Å lage biobrensel", "Å deponere farlig avfall"],
+    correct: 1,
+  },
+  {
+    question: "Hvilket av følgende er et biprodukt fra forbrenning av avfall?",
+    options: ["Aske", "Rent vann", "Biogass", "Plastgranulat"],
+    correct: 0,
+  },
+  {
+    question: "Hva er en utfordring ved bruk av forbrenningsanlegg?",
+    options: ["De kan bare håndtere metallavfall", "Utslipp av CO₂ og andre klimagasser", "De krever kun fornybart avfall", "De erstatter all behov for resirkulering"],
+    correct: 1,
+  },
+]
   
   const quizContainer = document.getElementById("quiz-container");
   const nextBtn = document.getElementById("next-btn");
@@ -131,6 +131,7 @@ const quizData = [
                   labels: ['Avfall brent (tonn)', 'CO2 utslipp (tonn)', 'Energi (MWh)'], // Vis energi i MWh
                   datasets: [{
                       label: '# Statistikk (2023)',
+                      backgroundColor: ['blue', 'red', 'green'], // Fyllfarge
                       data: [avfall, C02, energi], // Vis energi i MWh (deler på 1000)
                       borderWidth: 1
                   }]

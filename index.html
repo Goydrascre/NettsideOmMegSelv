@@ -51,7 +51,36 @@
             </table>
         </div>
     </div>
-
+    <h2>Registrer deg</h2>
+    <form id="registerForm">
+        <input type="text" id="username" placeholder="Brukernavn" required><br><br>
+        <input type="password" id="password" placeholder="Passord" required><br><br>
+        <button type="submit">Registrer</button>
+    </form>
+    <p id="responseMessage"></p>
+    
+    <script>
+        const form = document.getElementById('registerForm');
+        const responseMsg = document.getElementById('responseMessage');
+    
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+    
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            const response = await fetch('http://127.0.0.1:5000/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+    
+            const data = await response.json();
+            responseMsg.textContent = data.message;
+            responseMsg.style.color = data.status === 'success' ? 'green' : 'red';
+        });
+    </script>
+    
     <script src="Javascripter/Front.js"></script>
 </body>
 </html>

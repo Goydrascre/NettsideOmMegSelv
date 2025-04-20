@@ -53,32 +53,57 @@
     </div>
     <h2>Registrer deg</h2>
     <form id="registerForm">
-        <input type="text" id="username" placeholder="Brukernavn" required><br><br>
-        <input type="password" id="password" placeholder="Passord" required><br><br>
-        <button type="submit">Registrer</button>
+      <input type="text" id="registerUsername" placeholder="Brukernavn" required>
+      <input type="password" id="registerPassword" placeholder="Passord" required>
+      <button type="submit">Registrer</button>
     </form>
-    <p id="responseMessage"></p>
     
     <script>
-        const form = document.getElementById('registerForm');
-        const responseMsg = document.getElementById('responseMessage');
+      document.getElementById('registerForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const username = document.getElementById('registerUsername').value;
+        const password = document.getElementById('registerPassword').value;
     
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-    
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-    
-            const response = await fetch('http://127.0.0.1:5000/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password })
-            });
-    
-            const data = await response.json();
-            responseMsg.textContent = data.message;
-            responseMsg.style.color = data.status === 'success' ? 'green' : 'red';
+        const response = await fetch('http://localhost:3000/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
         });
+    
+        if (response.ok) {
+          alert('Registrering vellykket');
+        } else {
+          alert('Feil ved registrering');
+        }
+      });
+    </script>
+    
+    <h2>Logg inn</h2>
+    <form id="loginForm">
+      <input type="text" id="loginUsername" placeholder="Brukernavn" required>
+      <input type="password" id="loginPassword" placeholder="Passord" required>
+      <button type="submit">Logg inn</button>
+    </form>
+    
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const username = document.getElementById('loginUsername').value;
+        const password = document.getElementById('loginPassword').value;
+    
+        const response = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+    
+        if (response.ok) {
+          const data = await response.json();
+          alert('Innlogging vellykket! Token: ' + data.token);
+        } else {
+          alert('Feil ved innlogging');
+        }
+      });
     </script>
     
     <script src="Javascripter/Front.js"></script>
